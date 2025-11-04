@@ -1,11 +1,180 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="789.0" prefWidth="1418.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashBoardFormController">
+   <children>
+      <Rectangle arcHeight="70.0" arcWidth="70.0" fill="WHITE" height="91.0" layoutX="34.0" layoutY="8.0" stroke="BLACK" strokeType="INSIDE" width="1351.0" />
+      <ImageView fitHeight="82.0" fitWidth="86.0" layoutX="62.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/3.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="144.0" layoutY="29.0" text="Pharmacy Management System">
+         <font>
+            <Font name="System Bold" size="37.0" />
+         </font>
+      </Label>
+      <Label layoutX="1235.0" layoutY="38.0" text="Mr.Pasindu">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="50.0" fitWidth="53.0" layoutX="1177.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/6.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#449bc6" height="126.0" layoutX="118.0" layoutY="109.0" stroke="BLACK" strokeType="INSIDE" width="214.0" />
+      <Text fx:id="txtStock" fill="WHITE" layoutX="156.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Stock   00.00" textAlignment="CENTER" wrappingWidth="141.12893676757812">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#d6a14d" height="126.0" layoutX="465.0" layoutY="109.0" stroke="BLACK" strokeType="INSIDE" width="214.0" />
+      <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#34ce75" height="126.0" layoutX="807.0" layoutY="109.0" stroke="BLACK" strokeType="INSIDE" width="214.0" />
+      <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#8b3ecf" height="126.0" layoutX="1133.0" layoutY="110.0" stroke="BLACK" strokeType="INSIDE" width="214.0" />
+      <Label layoutX="501.0" layoutY="132.0" prefHeight="127.0" prefWidth="153.0" text="Medium Below Recorder Level" textFill="#fcfcfc" wrapText="true">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="828.0" layoutY="150.0" prefHeight="105.0" prefWidth="169.0" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="1135.0" layoutY="167.0" prefHeight="68.0" prefWidth="220.0" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="51.0" fitWidth="62.0" layoutX="204.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="51.0" fitWidth="62.0" layoutX="548.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/4.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="51.0" fitWidth="62.0" layoutX="884.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/5.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="51.0" fitWidth="62.0" layoutX="1218.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/2.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="txtPurchase" fill="WHITE" layoutX="835.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Purchases This Rs.0.00" textAlignment="CENTER" wrappingWidth="160.5">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Button layoutX="36.0" layoutY="269.0" mnemonicParsing="false" onAction="#btnDashBoardOnAction" prefHeight="45.0" prefWidth="232.0" styleClass="nav-button" stylesheets="@../css/style.css" text="DashBoard" textFill="#1626ff">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Button>
+      <Button layoutX="36.0" layoutY="330.0" mnemonicParsing="false" onAction="#btnMedicinesOnAction" prefHeight="45.0" prefWidth="232.0" styleClass="nav-button" stylesheets="@../css/style.css" text="Medicines" textFill="#1626ff">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Button>
+      <Button layoutX="36.0" layoutY="656.0" mnemonicParsing="false" onAction="#btnPurchasetemsOnAction" prefHeight="45.0" prefWidth="232.0" styleClass="nav-button" stylesheets="@../css/style.css" text="Purchase Items" textFill="#1626ff">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Button>
+      <Button layoutX="36.0" layoutY="590.0" mnemonicParsing="false" onAction="#btnPurchaseOnAction" prefHeight="45.0" prefWidth="232.0" styleClass="nav-button" stylesheets="@../css/style.css" text="Purchase" textFill="#1626ff">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Button>
+      <Button layoutX="37.0" layoutY="523.0" mnemonicParsing="false" onAction="#btnSuppliersOnAction" prefHeight="45.0" prefWidth="232.0" styleClass="nav-button" stylesheets="@../css/style.css" text="Suppliers" textFill="#1626ff">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Button>
+      <Button layoutX="36.0" layoutY="457.0" mnemonicParsing="false" onAction="#btnSalesitemsOnAction" prefHeight="45.0" prefWidth="232.0" styleClass="nav-button" stylesheets="@../css/style.css" text="Sales Items" textFill="#1626ff">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Button>
+      <Button layoutX="36.0" layoutY="395.0" mnemonicParsing="false" onAction="#btnSalesOnAction" prefHeight="45.0" prefWidth="232.0" styleClass="nav-button" stylesheets="@../css/style.css" text="Sales" textFill="#1626ff">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Button>
+      <Rectangle arcHeight="70.0" arcWidth="70.0" fill="WHITE" height="308.0" layoutX="375.0" layoutY="258.0" stroke="BLACK" strokeType="INSIDE" width="411.0" />
+      <Rectangle arcHeight="70.0" arcWidth="70.0" fill="WHITE" height="308.0" layoutX="820.0" layoutY="257.0" stroke="BLACK" strokeType="INSIDE" width="411.0" />
+      <AreaChart fx:id="AreaChart" layoutX="374.0" layoutY="305.0" prefHeight="259.0" prefWidth="376.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </AreaChart>
+      <LineChart fx:id="LineChart" layoutX="818.0" layoutY="306.0" prefHeight="257.0" prefWidth="387.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </LineChart>
+      <Label layoutX="609.0" layoutY="268.0" text="Monthly Sales" textFill="#2c0202">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="1077.0" layoutY="266.0" text="Stock Trend">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="70.0" arcWidth="70.0" fill="#e8dfdf" height="212.0" layoutX="281.0" layoutY="574.0" stroke="BLACK" strokeType="INSIDE" width="1101.0" />
+      <Label layoutX="302.0" layoutY="581.0" text="Reent Activity">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblRecentActivity" layoutX="309.0" layoutY="618.0" prefHeight="147.0" prefWidth="1044.0">
+        <columns>
+          <TableColumn fx:id="ColTransAction" prefWidth="144.33334350585938" text="TransAction" />
+          <TableColumn fx:id="ColDate" minWidth="5.666656494140625" prefWidth="280.66668701171875" text="Date" />
+            <TableColumn fx:id="ColType" minWidth="5.666656494140625" prefWidth="139.33331298828125" text="Type" />
+            <TableColumn fx:id="ColType" minWidth="5.666656494140625" prefWidth="230.0" text="Type" />
+            <TableColumn fx:id="ColMount" minWidth="5.666656494140625" prefWidth="248.00006103515625" text="Mount" />
+        </columns>
+      </TableView>
+      <Text fx:id="txtTotalSale" fill="WHITE" layoutX="1156.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Sales MonthRs.0.00$ " textAlignment="CENTER" wrappingWidth="180.704345703125">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Button layoutX="36.0" layoutY="717.0" mnemonicParsing="false" onAction="#btnRegisterOnAction" prefHeight="45.0" prefWidth="232.0" styleClass="nav-button" stylesheets="@../css/style.css" text="Register" textFill="#1626ff">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Button>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controller.DashBoardFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+   </children>
 </AnchorPane>
