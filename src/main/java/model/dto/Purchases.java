@@ -3,6 +3,8 @@ package model.dto;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -12,8 +14,8 @@ public class Purchases {
     private Integer id;
     private Integer supplier_id;
     private String invoice_no;
-    private LocalDate purchase_date;
+    private LocalDateTime purchase_date;
     private Double total_amount;
-    private LocalDate created_at;
+    private LocalDateTime created_at;
 
 }

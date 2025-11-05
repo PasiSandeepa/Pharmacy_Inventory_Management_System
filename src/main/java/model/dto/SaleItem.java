@@ -3,6 +3,7 @@ package model.dto;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @Getter
@@ -15,5 +16,5 @@ public class SaleItem {
     private Integer medicine_id;
     private Integer qty;
     private Double unit_price;
-    private LocalDate created_at;
+    private LocalDateTime created_at;
 }

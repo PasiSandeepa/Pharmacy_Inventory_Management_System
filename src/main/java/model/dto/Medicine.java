@@ -3,6 +3,8 @@ package model.dto;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Setter
 @Getter
 @AllArgsConstructor
@@ -13,10 +15,10 @@ public class Medicine {
     private String name;
     private String brand;
     private String batch_no;
-    private LocalDate expire_date;
+    private LocalDateTime expire_date;
     private Integer quantity;
     private Double unit_price;
     private Integer reorder_level;
-    private LocalDate created_at;
-    private LocalDate updated_at;
+    private LocalDateTime created_at;
+    private LocalDateTime updated_at;
 }
