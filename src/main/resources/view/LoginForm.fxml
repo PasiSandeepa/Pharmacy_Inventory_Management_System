@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="746.0" prefWidth="1421.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginFormController">
+   <children>
+      <AnchorPane layoutX="-3.0" layoutY="1.0" prefHeight="742.0" prefWidth="1419.0">
+         <children>
+            <ImageView fitHeight="774.0" fitWidth="1424.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/7.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="70.0" arcWidth="70.0" fill="#080101a6" height="650.0" layoutX="398.0" layoutY="37.0" stroke="BLACK" width="591.0" />
+            <Label layoutX="581.0" layoutY="55.0" styleClass="Label" stylesheets="@../css/style.css" text="Welcome" textFill="WHITE">
+               <font>
+                  <Font name="Bookman Old Style Bold" size="52.0" />
+               </font>
+            </Label>
+            <Label layoutX="641.0" layoutY="178.0" prefHeight="22.0" prefWidth="252.0" text="Login" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Yu Gothic Bold" size="43.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtEmail" layoutX="618.0" layoutY="299.0" prefHeight="59.0" prefWidth="298.0" />
+            <TextField fx:id="txtUserName" layoutX="620.0" layoutY="402.0" prefHeight="59.0" prefWidth="296.0" />
+            <Label layoutX="435.0" layoutY="304.0" text="Email" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="33.0" />
+               </font>
+            </Label>
+            <Label text="Label" />
+            <Label layoutX="427.0" layoutY="409.0" text="UserName" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="33.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="577.0" layoutY="529.0" onAction="#btnSigninOnActon" prefHeight="63.0" prefWidth="263.0" styleClass="card-blue" stylesheets="@../css/style.css" text="Sign in" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="29.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="674.0" layoutY="599.0" textFill="#06c5ff">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Hyperlink layoutX="666.0" layoutY="593.0" onAction="#hyperRegisterOnAction" text="Register" textFill="#0fc7ff">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Hyperlink>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
