@@ -14,8 +14,8 @@ public class Purchases {
     private Integer id;
     private Integer supplier_id;
     private String invoice_no;
-    private LocalDateTime purchase_date;
+    private LocalDate purchase_date;
     private Double total_amount;
-    private LocalDateTime created_at;
+    private LocalDate created_at;
 
 }
