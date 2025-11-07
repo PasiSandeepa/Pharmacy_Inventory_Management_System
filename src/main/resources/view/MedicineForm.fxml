@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="789.0" prefWidth="1182.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MedicineFormController">
+   <children>
+      <ImageView fitHeight="788.0" fitWidth="1346.0" layoutX="-2.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/9.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#265457c8" height="690.0" layoutX="33.0" layoutY="47.0" stroke="BLACK" strokeType="INSIDE" width="1113.0" />
+      <TableView fx:id="tblmedicine" layoutX="44.0" layoutY="287.0" prefHeight="360.0" prefWidth="1091.0" stylesheets="@../css/style.css">
+        <columns>
+          <TableColumn fx:id="colid" prefWidth="54.0" text="id" />
+          <TableColumn fx:id="colname" prefWidth="116.0" text="name" />
+            <TableColumn fx:id="colbrand" prefWidth="129.0" text="brand" />
+            <TableColumn fx:id="colbatchno" prefWidth="76.0" text="batch_no" />
+            <TableColumn fx:id="colexpireate" prefWidth="144.0" text="expire date" />
+            <TableColumn fx:id="colquantity" prefWidth="89.33331298828125" text="quantity" />
+            <TableColumn fx:id="colunitprice" prefWidth="104.66668701171875" text="unit price" />
+            <TableColumn fx:id="colrecorderlevel" prefWidth="115.0" text="recorder level" />
+            <TableColumn fx:id="colcreatedat" prefWidth="120.33331298828125" text="created at" />
+            <TableColumn fx:id="colupdatedat" prefWidth="140.66668701171875" text="updated at" />
+        </columns>
+      </TableView>
+      <TextField fx:id="txtSearch" layoutX="46.0" layoutY="222.0" prefHeight="47.0" prefWidth="321.0" promptText="Search.........">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </TextField>
+      <Label layoutX="51.0" layoutY="67.0" text="Medicines" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="51.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="878.0" layoutY="82.0" onAction="#btnAddMedicineOnAction" prefHeight="56.0" prefWidth="251.0" style="-fx-background-color: #09a9ff;" stylesheets="@../css/style.css" text="Add Medicine" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="35.0" fitWidth="33.0" layoutX="1093.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/10.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
