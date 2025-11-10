@@ -52,24 +52,45 @@ public class DashBoardFormController {
 
     @FXML
     void btnMedicinesOnAction(ActionEvent event) {
-
+        Stage stage1 = new Stage();
+        try {
+            stage1.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/MedicineForm.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage1.show();
     }
 
     @FXML
     void btnPurchaseOnAction(ActionEvent event) {
-
+        Stage stage1 = new Stage();
+        try {
+            stage1.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/PurchaseForm.fxml"))));
+        } catch (
+                IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage1.show();
     }
 
-    @FXML
-    void btnPurchasetemsOnAction(ActionEvent event) {
 
+    @FXML
+    void btnPurchaseitemsOnAction(ActionEvent event) {
+        Stage stage1 = new Stage();
+        try {
+            stage1.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/Purchase_ItemForm.fxml"))));
+        } catch (
+                IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage1.show();
     }
 
     @FXML
     void btnRegisterOnAction(ActionEvent event) {
         Stage stage1 = new Stage();
         try {
-            stage1.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/RegisterForm.fxml"))));
+            stage1.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/Registerform.fxml"))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -78,17 +99,35 @@ public class DashBoardFormController {
 
     @FXML
     void btnSalesOnAction(ActionEvent event) {
-
+        Stage stage1 = new Stage();
+        try {
+            stage1.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/SalesForm.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage1.show();
     }
 
     @FXML
     void btnSalesitemsOnAction(ActionEvent event) {
-
+        Stage stage1 = new Stage();
+        try {
+            stage1.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/Sales_ItemsForm.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage1.show();
     }
 
     @FXML
     void btnSuppliersOnAction(ActionEvent event) {
-
+        Stage stage1 = new Stage();
+        try {
+            stage1.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/SupplierForm.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage1.show();
     }
 
 

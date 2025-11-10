@@ -11,43 +11,37 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class PurchaseItemFormController {
+public class SalesFormController {
 
     @FXML
-    private TableColumn<?, ?> colbatchno;
+    private TableColumn<?, ?> colCreatedAt;
 
     @FXML
-    private TableColumn<?, ?> colcreatedat;
-
-    @FXML
-    private TableColumn<?, ?> colexpirydate;
+    private TableColumn<?, ?> colcashier;
 
     @FXML
     private TableColumn<?, ?> colid;
 
     @FXML
-    private TableColumn<?, ?> colmedicineid;
+    private TableColumn<?, ?> colinvoiceno;
 
     @FXML
-    private TableColumn<?, ?> colpurchaseid;
+    private TableColumn<?, ?> colsaledate;
 
     @FXML
-    private TableColumn<?, ?> colqty;
+    private TableColumn<?, ?> coltotalamount;
 
     @FXML
-    private TableColumn<?, ?> colunitprice;
-
-    @FXML
-    private TableView<?> tblPurchaseItem;
+    private TableView<?> tblSaless;
 
     @FXML
     private TextField txtSearch;
 
     @FXML
-    void btnAddPurchaseItemOnAction(ActionEvent event) {
+    void btnAddSalesOnAction(ActionEvent event) {
         Stage stage1 = new Stage();
         try {
-            stage1.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/AddPurchaseItemForm.fxml"))));
+            stage1.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/AddSalesForm.fxml"))));
         } catch (
                 IOException e) {
             throw new RuntimeException(e);

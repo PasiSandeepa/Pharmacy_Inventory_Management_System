@@ -30,22 +30,22 @@
                   <Font name="Yu Gothic Bold" size="43.0" />
                </font>
             </Label>
-            <TextField fx:id="txtEmail" layoutX="618.0" layoutY="299.0" prefHeight="59.0" prefWidth="298.0" />
-            <TextField fx:id="txtUserName" layoutX="620.0" layoutY="402.0" prefHeight="59.0" prefWidth="296.0" />
-            <Label layoutX="435.0" layoutY="304.0" text="Email" textFill="WHITE">
+            <TextField fx:id="txtEmail" layoutX="618.0" layoutY="309.0" prefHeight="49.0" prefWidth="298.0" />
+            <TextField fx:id="txtUserName" layoutX="620.0" layoutY="412.0" prefHeight="49.0" prefWidth="296.0" />
+            <Label layoutX="451.0" layoutY="313.0" text="Email" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="33.0" />
+                  <Font name="System Bold" size="26.0" />
                </font>
             </Label>
             <Label text="Label" />
-            <Label layoutX="427.0" layoutY="409.0" text="UserName" textFill="WHITE">
+            <Label layoutX="444.0" layoutY="412.0" prefHeight="31.0" prefWidth="170.0" text="UserName" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="33.0" />
+                  <Font name="System Bold" size="26.0" />
                </font>
             </Label>
-            <JFXButton layoutX="577.0" layoutY="529.0" onAction="#btnSigninOnActon" prefHeight="63.0" prefWidth="263.0" styleClass="card-blue" stylesheets="@../css/style.css" text="Sign in" textFill="WHITE">
+            <JFXButton layoutX="577.0" layoutY="529.0" onAction="#btnSigninOnActon" prefHeight="49.0" prefWidth="252.0" styleClass="card-blue" stylesheets="@../css/style.css" text="Sign in" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="29.0" />
+                  <Font name="System Bold" size="25.0" />
                </font>
             </JFXButton>
             <Label layoutX="674.0" layoutY="599.0" textFill="#06c5ff">
@@ -53,7 +53,7 @@
                   <Font size="21.0" />
                </font>
             </Label>
-            <Hyperlink layoutX="666.0" layoutY="593.0" onAction="#hyperRegisterOnAction" text="Register" textFill="#0fc7ff">
+            <Hyperlink layoutX="657.0" layoutY="588.0" onAction="#hyperRegisterOnAction" text="Register" textFill="#0fc7ff">
                <font>
                   <Font size="25.0" />
                </font>
