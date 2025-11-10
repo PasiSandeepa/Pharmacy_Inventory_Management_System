@@ -87,43 +87,43 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <Button layoutX="36.0" layoutY="269.0" mnemonicParsing="false" onAction="#btnDashBoardOnAction" prefHeight="45.0" prefWidth="232.0" style="-fx-background-color: #ffffff;" styleClass="nav-button" stylesheets="@../css/style.css" text="DashBoard" textFill="#0418ff">
+      <Button layoutX="36.0" layoutY="269.0" mnemonicParsing="false" onAction="#btnDashBoardOnAction" prefHeight="45.0" prefWidth="232.0" styleClass="nav-button" stylesheets="@../css/style.css" text="DashBoard" textFill="#1626ff">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Button>
-      <Button layoutX="36.0" layoutY="330.0" mnemonicParsing="false" onAction="#btnMedicinesOnAction" prefHeight="45.0" prefWidth="232.0" style="-fx-background-color: #ffffff;" styleClass="nav-button" stylesheets="@../css/style.css" text="Medicines" textFill="#1626ff">
+      <Button layoutX="36.0" layoutY="330.0" mnemonicParsing="false" onAction="#btnMedicinesOnAction" prefHeight="45.0" prefWidth="232.0" styleClass="nav-button" stylesheets="@../css/style.css" text="Medicines" textFill="#1626ff">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Button>
-      <Button layoutX="36.0" layoutY="656.0" mnemonicParsing="false" onAction="#btnPurchaseitemsOnAction" prefHeight="45.0" prefWidth="232.0" style="-fx-background-color: #ffffff;" styleClass="nav-button" stylesheets="@../css/style.css" text="Purchase Items" textFill="#1626ff">
+      <Button layoutX="36.0" layoutY="656.0" mnemonicParsing="false" onAction="#btnRegisterOnAction" prefHeight="45.0" prefWidth="232.0" styleClass="nav-button" stylesheets="@../css/style.css" text="Purchase Items" textFill="#1626ff">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Button>
-      <Button layoutX="36.0" layoutY="590.0" mnemonicParsing="false" onAction="#btnPurchaseOnAction" prefHeight="45.0" prefWidth="232.0" style="-fx-background-color: #ffffff;" styleClass="nav-button" stylesheets="@../css/style.css" text="Purchase" textFill="#1626ff">
+      <Button layoutX="36.0" layoutY="590.0" mnemonicParsing="false" onAction="#btnPurchaseOnAction" prefHeight="45.0" prefWidth="232.0" styleClass="nav-button" stylesheets="@../css/style.css" text="Purchase" textFill="#1626ff">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Button>
-      <Button layoutX="37.0" layoutY="523.0" mnemonicParsing="false" onAction="#btnSuppliersOnAction" prefHeight="45.0" prefWidth="232.0" style="-fx-background-color: #ffffff;" styleClass="nav-button" stylesheets="@../css/style.css" text="Suppliers" textFill="#1626ff">
+      <Button layoutX="37.0" layoutY="523.0" mnemonicParsing="false" onAction="#btnSuppliersOnAction" prefHeight="45.0" prefWidth="232.0" styleClass="nav-button" stylesheets="@../css/style.css" text="Suppliers" textFill="#1626ff">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Button>
-      <Button layoutX="36.0" layoutY="457.0" mnemonicParsing="false" onAction="#btnSalesitemsOnAction" prefHeight="45.0" prefWidth="232.0" style="-fx-background-color: #ffffff;" styleClass="nav-button" stylesheets="@../css/style.css" text="Sales Items" textFill="#1626ff">
+      <Button layoutX="36.0" layoutY="457.0" mnemonicParsing="false" onAction="#btnSalesitemsOnAction" prefHeight="45.0" prefWidth="232.0" styleClass="nav-button" stylesheets="@../css/style.css" text="Sales Items" textFill="#1626ff">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Button>
-      <Button layoutX="36.0" layoutY="395.0" mnemonicParsing="false" onAction="#btnSalesOnAction" prefHeight="45.0" prefWidth="232.0" style="-fx-background-color: #ffffff;" styleClass="nav-button" stylesheets="@../css/style.css" text="Sales" textFill="#1626ff">
+      <Button layoutX="36.0" layoutY="395.0" mnemonicParsing="false" onAction="#btnSalesOnAction" prefHeight="45.0" prefWidth="232.0" styleClass="nav-button" stylesheets="@../css/style.css" text="Sales" textFill="#1626ff">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Button>
-      <Rectangle arcHeight="70.0" arcWidth="70.0" fill="#c0d7d3" height="308.0" layoutX="375.0" layoutY="258.0" stroke="BLACK" strokeType="INSIDE" width="411.0" />
-      <Rectangle arcHeight="70.0" arcWidth="70.0" fill="#c0d7d3" height="308.0" layoutX="820.0" layoutY="257.0" stroke="BLACK" strokeType="INSIDE" width="411.0" />
+      <Rectangle arcHeight="70.0" arcWidth="70.0" fill="WHITE" height="308.0" layoutX="375.0" layoutY="258.0" stroke="BLACK" strokeType="INSIDE" width="411.0" />
+      <Rectangle arcHeight="70.0" arcWidth="70.0" fill="WHITE" height="308.0" layoutX="820.0" layoutY="257.0" stroke="BLACK" strokeType="INSIDE" width="411.0" />
       <AreaChart fx:id="AreaChart" layoutX="374.0" layoutY="305.0" prefHeight="259.0" prefWidth="376.0">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
@@ -161,8 +161,8 @@
           <TableColumn fx:id="ColTransAction" prefWidth="144.33334350585938" text="TransAction" />
           <TableColumn fx:id="ColDate" minWidth="5.666656494140625" prefWidth="280.66668701171875" text="Date" />
             <TableColumn fx:id="ColType" minWidth="5.666656494140625" prefWidth="139.33331298828125" text="Type" />
-            <TableColumn minWidth="5.666656494140625" prefWidth="230.0" text="Type" />
-            <TableColumn minWidth="5.666656494140625" prefWidth="248.00006103515625" text="Mount" />
+            <TableColumn fx:id="ColType" minWidth="5.666656494140625" prefWidth="230.0" text="Type" />
+            <TableColumn fx:id="ColMount" minWidth="5.666656494140625" prefWidth="248.00006103515625" text="Mount" />
         </columns>
       </TableView>
       <Text fx:id="txtTotalSale" fill="WHITE" layoutX="1156.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Sales MonthRs.0.00$ " textAlignment="CENTER" wrappingWidth="180.704345703125">
@@ -170,7 +170,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <Button layoutX="36.0" layoutY="717.0" mnemonicParsing="false" onAction="#btnRegisterOnAction" prefHeight="45.0" prefWidth="232.0" style="-fx-background-color: #ffffff;" styleClass="nav-button" stylesheets="@../css/style.css" text="Register" textFill="#1626ff">
+      <Button layoutX="36.0" layoutY="717.0" mnemonicParsing="false" onAction="#btnRegisterOnAction" prefHeight="45.0" prefWidth="232.0" styleClass="nav-button" stylesheets="@../css/style.css" text="Register" textFill="#1626ff">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
