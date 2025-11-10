@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 
 public class RegisterFormController {
 
+
     @FXML
     private ComboBox<?> cmbRole;
 
