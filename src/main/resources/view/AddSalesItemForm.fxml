@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="433.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddSalesItemController">
+    <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#614f07c2" height="403.0" layoutY="36.0" stroke="BLACK" strokeType="INSIDE" width="420.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#afaa08" height="52.0" layoutX="-2.0" layoutY="-10.0" stroke="BLACK" strokeType="INSIDE" width="420.0" />
+        <Label layoutX="147.0" layoutY="7.0" style="-fx-font-size:16px; -fx-font-weight:bold;" text="Add Sales_Item" textFill="WHITE">
+            <font>
+                <Font size="34.0" />
+            </font></Label>
+        <Label layoutX="30" layoutY="90" text="id" textFill="WHITE" />
+        <TextField fx:id="txtid" layoutX="130" layoutY="86" prefWidth="250" />
+        <Label layoutX="16.0" layoutY="130.0" text="    Sales_id" textFill="WHITE" />
+        <TextField fx:id="txtsalesid" layoutX="130" layoutY="126" prefWidth="250" />
+        <Label layoutX="30" layoutY="170" text="medicine_id" textFill="WHITE" />
+        <TextField fx:id="txtmedicineid" layoutX="130" layoutY="166" prefWidth="250" />
+        <Label layoutX="33.0" layoutY="210.0" text="qty" textFill="WHITE" />
+        <TextField fx:id="txtQty" layoutX="130" layoutY="206" prefWidth="250" />
+        <Label layoutX="20.0" layoutY="250.0" text="   unit_price" textFill="WHITE" />
+        <TextField fx:id="txtUnitprice" layoutX="130" layoutY="246" prefWidth="250" />
+        <Label layoutX="28.0" layoutY="290.0" text=" created_at " textFill="WHITE" />
+        <TextField fx:id="txtcreatedat" layoutX="130" layoutY="286" prefWidth="250" />
+
+        <Button layoutX="10.0" layoutY="330.0" onAction="#btnSaveOnAction" prefHeight="32.0" prefWidth="99.0" style="-fx-background-color: #2ecc71; -fx-text-fill: white;" text="Save">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font></Button>
+        <Button layoutX="307.0" layoutY="330.0" onAction="#btnCancelOnAction" prefHeight="32.0" prefWidth="99.0" text="Cancel">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font></Button>
+        <Button layoutX="94.0" layoutY="376.0" onAction="#btnEditOnAction" prefHeight="32.0" prefWidth="99.0" style="-fx-background-color: #144896; -fx-text-fill: white;" text="Edit" textFill="#144896">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button layoutX="221.0" layoutY="376.0" onAction="#btnDeleteOnAction" prefHeight="32.0" prefWidth="99.0" style="-fx-background-color: #8f1414; -fx-text-fill: white;" text="Delete" textFill="#8f1414">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Button>
+    </children>
+</AnchorPane>
