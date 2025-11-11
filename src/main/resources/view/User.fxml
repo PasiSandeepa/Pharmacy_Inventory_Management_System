@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="728.0" prefWidth="1071.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserFormController">
+   <children>
+      <ImageView fitHeight="709.0" fitWidth="1060.0" layoutX="71.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/11.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#10416eb4" height="744.0" layoutX="7.0" stroke="BLACK" strokeType="INSIDE" width="1062.0" />
+      <Label layoutX="481.0" layoutY="5.0" text="Users" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="48.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblusers" layoutX="17.0" layoutY="160.0" prefHeight="564.0" prefWidth="1045.0">
+        <columns>
+          <TableColumn fx:id="colid" prefWidth="51.0" text="id" />
+          <TableColumn fx:id="colusername" prefWidth="178.0" text="username" />
+            <TableColumn fx:id="colemail" prefWidth="272.0" text="email" />
+            <TableColumn fx:id="colpassword" prefWidth="154.0" text="password" />
+            <TableColumn fx:id="colrole" prefWidth="174.0" text="role" />
+            <TableColumn fx:id="colcreated_at" prefWidth="204.0" text="created_at" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

@@ -30,20 +30,20 @@
                   <Font name="Yu Gothic Bold" size="43.0" />
                </font>
             </Label>
-            <TextField fx:id="txtEmail" layoutX="618.0" layoutY="309.0" prefHeight="49.0" prefWidth="298.0" />
-            <TextField fx:id="txtUserName" layoutX="620.0" layoutY="412.0" prefHeight="49.0" prefWidth="296.0" />
-            <Label layoutX="451.0" layoutY="313.0" text="Email" textFill="WHITE">
+            <TextField fx:id="txtUsername" layoutX="618.0" layoutY="309.0" prefHeight="49.0" prefWidth="298.0" />
+            <TextField fx:id="txtPassword" layoutX="620.0" layoutY="412.0" prefHeight="49.0" prefWidth="296.0" />
+            <Label layoutX="441.0" layoutY="313.0" text="UserName" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="26.0" />
                </font>
             </Label>
             <Label text="Label" />
-            <Label layoutX="444.0" layoutY="412.0" prefHeight="31.0" prefWidth="170.0" text="UserName" textFill="WHITE">
+            <Label layoutX="444.0" layoutY="412.0" prefHeight="31.0" prefWidth="170.0" text="Password" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="26.0" />
                </font>
             </Label>
-            <JFXButton layoutX="577.0" layoutY="529.0" onAction="#btnSigninOnActon" prefHeight="49.0" prefWidth="252.0" styleClass="card-blue" stylesheets="@../css/style.css" text="Sign in" textFill="WHITE">
+            <JFXButton layoutX="596.0" layoutY="529.0" onAction="#btnSigninOnActon" prefHeight="52.0" prefWidth="223.0" style="-fx-background-color: #005aff;" styleClass="card-blue" stylesheets="@../css/style.css" text="Sign in" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
@@ -53,11 +53,16 @@
                   <Font size="21.0" />
                </font>
             </Label>
-            <Hyperlink layoutX="657.0" layoutY="588.0" onAction="#hyperRegisterOnAction" text="Register" textFill="#0fc7ff">
+            <Hyperlink layoutX="579.0" layoutY="592.0" onAction="#hyperRegisterOnAction" text="are you new user ? register now" textFill="#0fc7ff">
                <font>
-                  <Font size="25.0" />
+                  <Font name="System Bold Italic" size="17.0" />
                </font>
             </Hyperlink>
+            <ImageView fitHeight="38.0" fitWidth="41.0" layoutX="623.0" layoutY="537.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/15.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>
