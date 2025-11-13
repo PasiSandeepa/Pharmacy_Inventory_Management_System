@@ -8,11 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import model.dto.Users;
 import service.UserService;
@@ -26,6 +22,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
+import java.util.Random;
 
 public class RegisterFormController implements Initializable {
 
@@ -61,15 +58,19 @@ public class RegisterFormController implements Initializable {
         stage1.show();
     }
 
-
-
     @FXML
     void btnRegisterOnAction(ActionEvent event) throws SQLException {
+        Users users = new Users();
         String username = txtUserName.getText().trim();
         String email = txtEmail.getText().trim();
         String password = txtpassword.getText().trim();
         String confirmPassword = txtCpassword.getText().trim();
         String role = cmbRole.getValue();
+        LocalDate selectedDate = dpcreatedat.getValue();
+        LocalDateTime dateTime = selectedDate.atTime(LocalDateTime.now().getHour(),
+                LocalDateTime.now().getMinute(),
+                LocalDateTime.now().getSecond());
+
 
         // 1️⃣ Validation
         if (username.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || role == null) {
@@ -88,14 +89,14 @@ public class RegisterFormController implements Initializable {
             showAlert("Email already registered!");
             return;
         }
-
-
         Users user = new Users();
         user.setUsername(username);
         user.setEmail(email);
         user.setPassword(password);
         user.setRole(role.toUpperCase());
-        user.setCreatedAt(LocalDateTime.now());
+        user.setCreatedAt(selectedDate.atStartOfDay());
+        user.setCreatedAt(dateTime);
+
 
         // 4️⃣ Save user
         boolean saved = userService.registerUser(user);
@@ -107,7 +108,6 @@ public class RegisterFormController implements Initializable {
             showAlert("Failed to register user!");
         }
     }
-
 
     private void clearFields() {
         txtUserName.clear();
@@ -136,6 +136,8 @@ public class RegisterFormController implements Initializable {
         roleList.add("Pharmacist");
 
         cmbRole.setItems(roleList);
-        dpcreatedat.setValue(LocalDate.now());
+
     }
+
+
 }

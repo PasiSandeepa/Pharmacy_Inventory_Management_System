@@ -20,53 +20,69 @@
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#052742ca" height="730.0" layoutX="327.0" layoutY="30.0" stroke="BLACK" strokeType="INSIDE" width="634.0" />
+
       <Label layoutX="554.0" layoutY="45.0" text="Register" textFill="WHITE">
          <font>
             <Font name="System Bold" size="54.0" />
          </font>
       </Label>
-      <TextField fx:id="txtUserName" layoutX="626.0" layoutY="186.0" prefHeight="42.0" prefWidth="274.0" />
-      <TextField fx:id="txtEmail" layoutX="627.0" layoutY="260.0" prefHeight="42.0" prefWidth="274.0" />
-      <ComboBox fx:id="cmbRole" layoutX="627.0" layoutY="500.0" prefHeight="42.0" prefWidth="274.0" />
-      <Button layoutX="432.0" layoutY="671.0" mnemonicParsing="false" onAction="#btnRegisterOnAction" prefHeight="42.0" prefWidth="274.0" style="-fx-background-color: #d30707;" stylesheets="@../css/style.css" text="Register" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="34.0" />
-         </font>
-      </Button>
-      <Label layoutX="389.0" layoutY="179.0" text="UserName" textFill="WHITE">
+
+
+      <Label layoutX="389.0" layoutY="164.0" text="UserName" textFill="WHITE">
          <font>
             <Font name="System Bold" size="34.0" />
          </font>
       </Label>
-      <Label layoutX="391.0" layoutY="259.0" text="Email" textFill="WHITE">
+      <TextField fx:id="txtUserName" layoutX="626.0" layoutY="170.0" prefHeight="42.0" prefWidth="274.0" />
+
+
+      <Label layoutX="391.0" layoutY="234.0" text="Email" textFill="WHITE">
          <font>
             <Font name="System Bold" size="34.0" />
          </font>
       </Label>
-      <Label layoutX="390.0" layoutY="333.0" text="Password" textFill="WHITE">
+      <TextField fx:id="txtEmail" layoutX="627.0" layoutY="234.0" prefHeight="42.0" prefWidth="274.0" />
+
+
+      <Label layoutX="390.0" layoutY="322.0" text="Password" textFill="WHITE">
          <font>
             <Font name="System Bold" size="34.0" />
          </font>
       </Label>
+      <PasswordField fx:id="txtpassword" layoutX="627.0" layoutY="338.0" prefHeight="42.0" prefWidth="274.0" />
+
+
+      <Label layoutX="388.0" layoutY="360.0" prefHeight="149.0" prefWidth="188.0" text="Confirm         Password" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="System Bold" size="34.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="txtCpassword" layoutX="626.0" layoutY="421.0" prefHeight="42.0" prefWidth="274.0" />
+
+
       <Label layoutX="394.0" layoutY="503.0" text="Role" textFill="WHITE">
          <font>
             <Font name="System Bold" size="34.0" />
          </font>
       </Label>
+      <ComboBox fx:id="cmbRole" layoutX="627.0" layoutY="500.0" prefHeight="42.0" prefWidth="274.0" />
+
+
       <Label layoutX="392.0" layoutY="577.0" text="Created at" textFill="WHITE">
          <font>
             <Font name="System Bold" size="34.0" />
          </font>
       </Label>
       <DatePicker fx:id="dpcreatedat" layoutX="627.0" layoutY="575.0" prefHeight="42.0" prefWidth="274.0" />
-      <PasswordField fx:id="txtCpassword" layoutX="626.0" layoutY="421.0" prefHeight="42.0" prefWidth="274.0" />
-      <PasswordField fx:id="txtpassword" layoutX="627.0" layoutY="338.0" prefHeight="42.0" prefWidth="274.0" />
-      <Label layoutX="388.0" layoutY="371.0" prefHeight="149.0" prefWidth="188.0" text="Confirm         Password" textFill="WHITE" wrapText="true">
+
+      <Button layoutX="432.0" layoutY="671.0" mnemonicParsing="false" onAction="#btnRegisterOnAction" prefHeight="42.0" prefWidth="274.0" style="-fx-background-color: #d30707;" stylesheets="@../css/style.css" text="Register" textFill="WHITE">
          <font>
             <Font name="System Bold" size="34.0" />
          </font>
-      </Label>
-      <Button layoutX="768.0" layoutY="672.0" mnemonicParsing="false" onAction="#btnViewUsersOnAction" prefHeight="42.0" prefWidth="139.0" style="-fx-background-color: #07408a;" text="View Users" textFill="WHITE">
+      </Button>
+
+      <!-- View Users Button -->
+      <Button layoutX="768.0" layoutY="687.0" mnemonicParsing="false" onAction="#btnViewUsersOnAction" prefHeight="42.0" prefWidth="139.0" style="-fx-background-color: #07408a;" text="View Users" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
