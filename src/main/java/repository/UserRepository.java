@@ -1,14 +1,16 @@
 package repository;
 
 import db.DBConnection;
+import javafx.scene.control.Alert;
 import model.dto.Users;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Timestamp;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.mail.*;
+import javax.mail.internet.*;
+import java.util.Properties;
+
 
 public class UserRepository {
 
@@ -20,6 +22,9 @@ public class UserRepository {
             ps.setString(3, user.getPassword());
             ps.setString(4, user.getRole());
             ps.setTimestamp(5, Timestamp.valueOf(user.getCreatedAt()));
+
+
+
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -94,5 +99,16 @@ public class UserRepository {
             e.printStackTrace();
         }
         return null;
+    }
+
+
+
+
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Alert");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }

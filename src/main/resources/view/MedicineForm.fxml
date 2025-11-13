@@ -11,7 +11,6 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="789.0" prefWidth="1182.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MedicineFormController">
    <children>
       <ImageView fitHeight="788.0" fitWidth="1346.0" layoutX="-2.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
@@ -34,7 +33,7 @@
             <TableColumn fx:id="colupdatedat" prefWidth="140.66668701171875" text="updated at" />
         </columns>
       </TableView>
-      <TextField fx:id="txtSearch" layoutX="46.0" layoutY="222.0" prefHeight="47.0" prefWidth="321.0" promptText="Search.........">
+      <TextField fx:id="txtSearchOnAction" layoutX="46.0" layoutY="222.0" prefHeight="47.0" prefWidth="321.0" promptText="Search.........">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
@@ -49,7 +48,7 @@
             <Font name="System Bold" size="25.0" />
          </font>
       </JFXButton>
-      <ImageView fitHeight="35.0" fitWidth="33.0" layoutX="1093.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="35.0" fitWidth="33.0" layoutX="1090.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/10.png" />
          </image>
