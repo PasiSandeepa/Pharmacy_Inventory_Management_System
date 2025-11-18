@@ -1,17 +1,29 @@
 package controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import model.dto.Purchases;
+import service.PurchaseService;
+import service.impl.PurchaseServicempl;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class PurchaseFormController {
+public class PurchaseFormController implements Initializable {
+
+    private final ObservableList<Purchases> purchaseList = FXCollections.observableArrayList();
+    private final PurchaseService purchaseService = new PurchaseServicempl();
 
     @FXML
     private TableColumn<?, ?> colCreatedat;
@@ -32,14 +44,20 @@ public class PurchaseFormController {
     private TableColumn<?, ?> colid;
 
     @FXML
-    private TableView<?> tblPurchase;
-
+    private TableView<Purchases> tblPurchase;
     @FXML
     private TextField txtSearch;
+
+
+    @FXML
+    void txtSearchOnAction(ActionEvent event) {
+
+    }
 
     @FXML
     void btnAddPurchaseOnAction(ActionEvent event) {
         Stage stage1 = new Stage();
+        stage1.setOnHidden(e -> LoadPurchase());
         try {
             stage1.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/AddPurchaseForm.fxml"))));
         } catch (
@@ -48,5 +66,41 @@ public class PurchaseFormController {
         }
         stage1.show();
     }
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        colid.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colInvoiceno.setCellValueFactory(new PropertyValueFactory<>("invoice_no"));
+        colSupplierid.setCellValueFactory(new PropertyValueFactory<>("supplier_id"));
+        colPurchasedate.setCellValueFactory(new PropertyValueFactory<>("purchase_date"));
+        colTotalamount.setCellValueFactory(new PropertyValueFactory<>("total_amount"));
+        colCreatedat.setCellValueFactory(new PropertyValueFactory<>("created_at"));
+        LoadPurchase();
+       txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
+            filterPurchaseList(newValue);
+        });
+
     }
+
+    public void LoadPurchase() {
+        purchaseList.clear();
+        purchaseList.addAll(purchaseService.getAllPurchases());
+        tblPurchase.setItems(purchaseList);
+
+    }
+    private void filterPurchaseList(String keyword) {
+        ObservableList<Purchases> filteredList = FXCollections.observableArrayList();
+
+        for (Purchases purchase : purchaseList) {
+            if (purchase.getInvoice_no().toLowerCase().contains(keyword.toLowerCase()) ||
+                    String.valueOf(purchase.getId()).contains(keyword) ||
+                    String.valueOf(purchase.getTotal_amount()).contains(keyword)) {
+                filteredList.add(purchase);
+            }
+        }
+
+        tblPurchase.setItems(filteredList);
+    }
+}
 
