@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @ToString
 public class Suppliers {
-    private Integer id;
+    private String id;
     private String name;
     private String phone;
     private String email;
