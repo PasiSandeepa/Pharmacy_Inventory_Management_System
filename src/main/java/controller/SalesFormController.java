@@ -1,18 +1,24 @@
 package controller;
 
-import javafx.event.ActionEvent;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+import javafx.scene.control.cell.PropertyValueFactory;
+import model.dto.Sales;
+import service.SaleService;
+import service.impl.SalesServiceImpl;
 
-import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class SalesFormController {
+public class SalesFormController implements Initializable {
 
+      SaleService saleService = new SalesServiceImpl();
+      ObservableList<Sales> salesObservableList = FXCollections.observableArrayList();
     @FXML
     private TableColumn<?, ?> colCreatedAt;
 
@@ -32,21 +38,41 @@ public class SalesFormController {
     private TableColumn<?, ?> coltotalamount;
 
     @FXML
-    private TableView<?> tblSaless;
+    private TableView<Sales> tblSaless;
 
     @FXML
     private TextField txtSearch;
 
-    @FXML
-    void btnAddSalesOnAction(ActionEvent event) {
-        Stage stage1 = new Stage();
-        try {
-            stage1.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/AddSalesForm.fxml"))));
-        } catch (
-                IOException e) {
-            throw new RuntimeException(e);
-        }
-        stage1.show();
-    }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        colid.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colinvoiceno.setCellValueFactory(new PropertyValueFactory<>("invoice_no"));
+        colsaledate.setCellValueFactory(new PropertyValueFactory<>("sale_date"));
+        colcashier.setCellValueFactory(new PropertyValueFactory<>("cashier"));
+        coltotalamount.setCellValueFactory(new PropertyValueFactory<>("total_amount"));
+        colCreatedAt.setCellValueFactory(new PropertyValueFactory<>("created_at"));
+        loadAllSales();
+        txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
+         filteredSalesList(newValue);
+        });
+
+    }
+    private void loadAllSales(){
+        salesObservableList.clear();
+        salesObservableList.addAll(saleService.getAllSales());
+        tblSaless.setItems(salesObservableList);
+    }
+    private void  filteredSalesList(String searchText){
+        ObservableList<Sales> filteredList=FXCollections.observableArrayList();
+        for (Sales sales:salesObservableList){
+            if (sales.getInvoice_no().toLowerCase().contains(searchText.toLowerCase())||
+            sales.getCashier().toLowerCase().contains(searchText.toLowerCase())){
+                filteredList.add(sales);
+            }
+        }
+        tblSaless.setItems(filteredList);
+    }
 }
+
+
