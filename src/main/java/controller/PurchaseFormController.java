@@ -49,10 +49,6 @@ public class PurchaseFormController implements Initializable {
     private TextField txtSearch;
 
 
-    @FXML
-    void txtSearchOnAction(ActionEvent event) {
-
-    }
 
     @FXML
     void btnAddPurchaseOnAction(ActionEvent event) {
@@ -102,5 +98,7 @@ public class PurchaseFormController implements Initializable {
 
         tblPurchase.setItems(filteredList);
     }
+
+
 }
 

@@ -88,16 +88,16 @@ public class MedicineFormController implements Initializable {
         colrecorderlevel.setCellValueFactory(new PropertyValueFactory<>("reorder_level"));
         colcreatedat.setCellValueFactory(new PropertyValueFactory<>("created_at"));
         colupdatedat.setCellValueFactory(new PropertyValueFactory<>("updated_at"));
-        tblmedicine.setItems(medicineList); // ✅ bind ObservableList to TableView
-        loadMedicine(); // initial load
+        tblmedicine.setItems(medicineList);
+        loadMedicine();
 
         txtSearchOnAction.textProperty().addListener((obs, oldVal, newVal) -> filterMedicine(newVal));
     }
 
 
     public void loadMedicine() {
-        medicineList.clear(); // clear existing items
-        medicineList.addAll(medicineService.getAllMedicines()); // auto refresh TableView
+        medicineList.clear();
+        medicineList.addAll(medicineService.getAllMedicines());
     }
 
     private void filterMedicine(String keyword) {

@@ -7,9 +7,6 @@ import model.dto.Users;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import javax.mail.*;
-import javax.mail.internet.*;
-import java.util.Properties;
 
 
 public class UserRepository {

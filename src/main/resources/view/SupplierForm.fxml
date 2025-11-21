@@ -11,22 +11,22 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="789.0" prefWidth="1182.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SupplierFormController">
+<AnchorPane prefHeight="773.0" prefWidth="1173.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SupplierFormController">
     <children>
-        <ImageView fitHeight="788.0" fitWidth="1346.0" layoutX="-2.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="779.0" fitWidth="1203.0" layoutX="-2.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../img/14.jpg" />
             </image>
         </ImageView>
-        <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#79007bc7" height="690.0" layoutX="35.0" layoutY="50.0" stroke="BLACK" strokeType="INSIDE" width="1113.0" />
+        <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#79007bc7" height="656.0" layoutX="35.0" layoutY="50.0" stroke="BLACK" strokeType="INSIDE" width="1113.0" />
         <TableView fx:id="tblSuppliers" layoutX="47.0" layoutY="287.0" prefHeight="360.0" prefWidth="1088.0" stylesheets="@../css/style.css">
             <columns>
                 <TableColumn fx:id="colid" prefWidth="79.0" text="id" />
                 <TableColumn fx:id="colname" prefWidth="154.0" text="Name" />
                 <TableColumn fx:id="colPhoneno" prefWidth="152.0" text="Phone No" />
-                <TableColumn fx:id="colemail" prefWidth="204.0" text="Email" />
-                <TableColumn fx:id="colAddress" prefWidth="291.0" text="Address" />
-                <TableColumn fx:id="colcreatedat" prefWidth="210.0" text="Created_at" />
+                <TableColumn fx:id="colemail" prefWidth="306.0" text="Email" />
+                <TableColumn fx:id="colAddress" prefWidth="198.0" text="Address" />
+                <TableColumn fx:id="colcreatedat" prefWidth="201.0" text="Created_at" />
             </columns>
         </TableView>
         <TextField fx:id="txtSearch" layoutX="48.0" layoutY="233.0" prefHeight="42.0" prefWidth="313.0" promptText="Search.........">

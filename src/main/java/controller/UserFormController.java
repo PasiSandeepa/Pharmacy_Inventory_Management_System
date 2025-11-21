@@ -55,7 +55,7 @@ public class UserFormController implements Initializable {
 
     private void loadUsers() {
         ObservableList<Users> usersList = FXCollections.observableArrayList();
-        usersList.addAll(userService.getAllUsers()); // use the instance
+        usersList.addAll(userService.getAllUsers());
         tblusers.setItems(usersList);
     }
 

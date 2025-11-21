@@ -37,13 +37,13 @@ public class PurchaseRepository {
             Connection connection = DBConnection.getInstance().getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
-            preparedStatement.setInt(1, purchases.getId()); // SET id
+            preparedStatement.setInt(1, purchases.getId());
             preparedStatement.setInt(2, purchases.getSupplier_id());
             preparedStatement.setString(3, purchases.getInvoice_no());
-            preparedStatement.setDate(4, java.sql.Date.valueOf(purchases.getPurchase_date())); // DATE
-            preparedStatement.setDouble(5, purchases.getTotal_amount()); // DOUBLE
-            preparedStatement.setDate(6, java.sql.Date.valueOf(purchases.getCreated_at())); // DATE
-            preparedStatement.setInt(7, purchases.getId()); // WHERE id
+            preparedStatement.setDate(4, java.sql.Date.valueOf(purchases.getPurchase_date()));
+            preparedStatement.setDouble(5, purchases.getTotal_amount());
+            preparedStatement.setDate(6, java.sql.Date.valueOf(purchases.getCreated_at()));
+            preparedStatement.setInt(7, purchases.getId());
 
             return preparedStatement.executeUpdate() > 0;
 

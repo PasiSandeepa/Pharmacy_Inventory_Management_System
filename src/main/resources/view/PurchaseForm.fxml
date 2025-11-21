@@ -29,7 +29,7 @@
                 <TableColumn fx:id="colCreatedat" prefWidth="210.0" text="Created at" />
             </columns>
         </TableView>
-        <TextField fx:id="txtSearch" layoutX="71.0" layoutY="230.0" onAction="#txtSearchOnAction" prefHeight="42.0" prefWidth="313.0" promptText="Search.........">
+        <TextField fx:id="txtSearch" layoutX="71.0" layoutY="230.0" prefHeight="42.0" prefWidth="313.0" promptText="Search.........">
             <font>
                 <Font name="System Bold" size="22.0" />
             </font>

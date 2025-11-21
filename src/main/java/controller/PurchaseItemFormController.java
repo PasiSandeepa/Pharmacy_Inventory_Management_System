@@ -22,8 +22,8 @@ import java.util.ResourceBundle;
 
 public class PurchaseItemFormController implements Initializable {
 
-public  final ObservableList<Purchase_items> purchaseItemArrayList = FXCollections.observableArrayList();
-      public final PurchaseItemService purchaseItemService  = new PurchaseItemServiceImpl();
+    public final ObservableList<Purchase_items> purchaseItemArrayList = FXCollections.observableArrayList();
+    public final PurchaseItemService purchaseItemService = new PurchaseItemServiceImpl();
 
 
     @FXML
@@ -85,22 +85,24 @@ public  final ObservableList<Purchase_items> purchaseItemArrayList = FXCollectio
         });
 
     }
-   public  void loadPurchaseItem() {
+
+    public void loadPurchaseItem() {
         purchaseItemArrayList.clear();
         purchaseItemArrayList.addAll(purchaseItemService.getAllPurchaseItems());
         tblPurchaseItem.setItems(purchaseItemArrayList);
     }
-    private  void filterPurchaseItemList(String searchText) {
+
+    private void filterPurchaseItemList(String searchText) {
         ObservableList<Purchase_items> filteredList = FXCollections.observableArrayList();
 
         for (Purchase_items item : purchaseItemArrayList) {
             if (String.valueOf(item.getId()).contains(searchText) ||
-                String.valueOf(item.getPurchase_id()).contains(searchText) ||
-                String.valueOf(item.getMedicine_id()).contains(searchText) ||
-                item.getBatch_no().toLowerCase().contains(searchText.toLowerCase()) ||
-                String.valueOf(item.getQty()).contains(searchText) ||
-                String.valueOf(item.getUnit_price()).contains(searchText) ||
-                item.getExpiry_date().toString().contains(searchText)
+                    String.valueOf(item.getPurchase_id()).contains(searchText) ||
+                    String.valueOf(item.getMedicine_id()).contains(searchText) ||
+                    item.getBatch_no().toLowerCase().contains(searchText.toLowerCase()) ||
+                    String.valueOf(item.getQty()).contains(searchText) ||
+                    String.valueOf(item.getUnit_price()).contains(searchText) ||
+                    item.getExpiry_date().toString().contains(searchText)
             ) {
                 filteredList.add(item);
             }

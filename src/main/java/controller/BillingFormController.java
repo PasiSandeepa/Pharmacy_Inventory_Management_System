@@ -10,10 +10,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import model.dto.CartItem;
 import model.dto.Medicine;
+import model.dto.Sales;
 import service.BillingService;
 import service.impl.BillingServiceImpl;
 
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -67,6 +69,9 @@ public class BillingFormController implements Initializable {
     @FXML
     private TextField txtUnitPrice;
 
+    @FXML
+    private TextField txtMedicineId;
+
 
     @FXML
     private Label lblSubTotal;
@@ -100,6 +105,11 @@ public class BillingFormController implements Initializable {
         String medName = txtMedicineName.getText();
         String customerName = txtCustomerName.getText();
         int qty = Integer.parseInt(txtQty.getText());
+        String cashier = cmbCashier.getValue();
+        if (cashier == null || cashier.isEmpty()) {
+            show(Alert.AlertType.ERROR, "Error", "Please select a cashier!");
+            return;
+        }
         double unitPrice = Double.parseDouble(txtUnitPrice.getText());
         double total = calculateTotal(qty, unitPrice);
 
@@ -133,6 +143,7 @@ public class BillingFormController implements Initializable {
             }
         }
         CartItem newItem = new CartItem(
+                0,
                 txtCustomerName.getText(),
                 medName,
                 unitPrice,
@@ -161,8 +172,31 @@ public class BillingFormController implements Initializable {
 
     @FXML
     void btnPlaceOrderOnAction(ActionEvent event) {
+        ObservableList<CartItem> cartItems = tblBilling.getItems();
+        if (cartItems.isEmpty()) {
+            show(Alert.AlertType.ERROR, "Error", "Cart is empty");
+            return;
+        }
+        String cashier = cmbCashier.getValue();
+        if (cashier == null || cashier.isEmpty()) {
+            show(Alert.AlertType.ERROR, "Error", "Please Select in Cashier!");
+            return;
+        }
+        Sales sales = new Sales();
+        sales.setCashier(cmbCashier.getValue());
+        sales.setInvoice_no(generateInvoiceNumber());
+        sales.setSale_date(LocalDateTime.now());
+        sales.setTotal_amount(Double.parseDouble(lblFinalTotal.getText()));
+        sales.setCreated_at(LocalDateTime.now());
 
+
+        billingService.billing(sales, cartItems);
+
+        show(Alert.AlertType.INFORMATION, "Success", "Order placed successfully!");
+        clearFields();
+        tblBilling.getItems().clear();
     }
+
 
     @FXML
     void btnPrintOnAction(ActionEvent event) {
@@ -188,7 +222,7 @@ public class BillingFormController implements Initializable {
         txtMedicineName.clear();
         txtQty.clear();
         txtUnitPrice.clear();
-        cmbCashier.getSelectionModel().clearSelection();
+
     }
 
     public void show(Alert.AlertType alertType, String title, String message) {
@@ -205,12 +239,18 @@ public class BillingFormController implements Initializable {
         for (CartItem item : cartItems) {
             subtotal += item.getTotal();
         }
-       lblSubTotal.setText(String.format("%.2f", subtotal));
+        lblSubTotal.setText(String.format("%.2f", subtotal));
 
         double discount = subtotal * 0.1;
         lblDiscount.setText(String.format("%.2f", discount));
 
         double finalTotal = subtotal - discount;
         lblFinalTotal.setText(String.format("%.2f", finalTotal));
+    }
+
+    private String generateInvoiceNumber() {
+        String prefix = "INV";
+        String uniquePart = String.valueOf(System.currentTimeMillis()).substring(7);
+        return prefix + uniquePart;
     }
 }

@@ -3,38 +3,21 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.chart.AreaChart;
-import javafx.scene.chart.LineChart;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 
 public class DashBoardFormController {
 
     @FXML
-    private AreaChart<?, ?> AreaChart;
+    private AnchorPane LoadMedicine;
 
     @FXML
-    private TableColumn<?, ?> ColDate;
-
-    @FXML
-    private TableColumn<?, ?> ColMount;
-
-    @FXML
-    private TableColumn<?, ?> ColTransAction;
-
-    @FXML
-    private TableColumn<?, ?> ColType;
-
-    @FXML
-    private LineChart<?, ?> LineChart;
-
-    @FXML
-    private TableView<?> tblRecentActivity;
+    private Button btnMedicine;
 
     @FXML
     private Text txtPurchase;
@@ -46,89 +29,121 @@ public class DashBoardFormController {
     private Text txtTotalSale;
 
     @FXML
-    void btnDashBoardOnAction(ActionEvent event) {
+    void btnDashBoardOnAction(ActionEvent event) throws IOException {
+        URL resource = this.getClass().getResource("/view/Home_Page.fxml");
 
+        assert resource != null;
+
+        Parent load = FXMLLoader.load(resource);
+
+        LoadMedicine.getChildren().clear();
+        LoadMedicine.getChildren().add(load);
     }
 
     @FXML
-    void btnMedicinesOnAction(ActionEvent event) {
-        Stage stage1 = new Stage();
-        try {
-            stage1.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/MedicineForm.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        stage1.show();
+    void btnHomeOnAction(ActionEvent event) throws IOException {
+        URL resource = this.getClass().getResource("/view/ReportForm.fxml");
+
+        assert resource != null;
+
+        Parent load = FXMLLoader.load(resource);
+
+        LoadMedicine.getChildren().clear();
+        LoadMedicine.getChildren().add(load);
     }
 
     @FXML
-    void btnPurchaseOnAction(ActionEvent event) {
-        Stage stage1 = new Stage();
-        try {
-            stage1.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/PurchaseForm.fxml"))));
-        } catch (
-                IOException e) {
-            throw new RuntimeException(e);
-        }
-        stage1.show();
-    }
+    void btnMedicinesOnAction(ActionEvent event) throws IOException {
+        URL resource = this.getClass().getResource("/view/MedicineForm.fxml");
 
+        assert resource != null;
 
-    @FXML
-    void btnPurchaseitemsOnAction(ActionEvent event) {
-        Stage stage1 = new Stage();
-        try {
-            stage1.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/Purchase_ItemForm.fxml"))));
-        } catch (
-                IOException e) {
-            throw new RuntimeException(e);
-        }
-        stage1.show();
+        Parent load = FXMLLoader.load(resource);
+
+        LoadMedicine.getChildren().clear();
+        LoadMedicine.getChildren().add(load);
     }
 
     @FXML
-    void btnRegisterOnAction(ActionEvent event) {
-        Stage stage1 = new Stage();
-        try {
-            stage1.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/Registerform.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        stage1.show();
+    void btnPurchaseItemOnAction(ActionEvent event) throws IOException {
+        URL resource = this.getClass().getResource("/view/Purchase_ItemForm.fxml");
+
+        assert resource != null;
+
+        Parent load = FXMLLoader.load(resource);
+
+       LoadMedicine.getChildren().clear();
+        LoadMedicine.getChildren().add(load);
     }
 
     @FXML
-    void btnSalesOnAction(ActionEvent event) {
-        Stage stage1 = new Stage();
-        try {
-            stage1.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/SalesForm.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        stage1.show();
+    void btnPurchaseOnAction(ActionEvent event) throws IOException {
+        URL resource = this.getClass().getResource("/view/PurchaseForm.fxml");
+
+        assert resource != null;
+
+        Parent load = FXMLLoader.load(resource);
+
+        LoadMedicine.getChildren().clear();
+        LoadMedicine.getChildren().add(load);
     }
 
     @FXML
-    void btnSalesitemsOnAction(ActionEvent event) {
-        Stage stage1 = new Stage();
-        try {
-            stage1.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/Sales_ItemsForm.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        stage1.show();
+    void btnRegisterOnAction(ActionEvent event) throws IOException {
+        URL resource = this.getClass().getResource("/view/Registerform.fxml");
+
+        assert resource != null;
+
+        Parent load = FXMLLoader.load(resource);
+
+        LoadMedicine.getChildren().clear();
+        LoadMedicine.getChildren().add(load);
     }
 
     @FXML
-    void btnSuppliersOnAction(ActionEvent event) {
-        Stage stage1 = new Stage();
-        try {
-            stage1.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/SupplierForm.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        stage1.show();
+    void btnSalesOnAction(ActionEvent event) throws IOException {
+        URL resource = this.getClass().getResource("/view/SalesForm.fxml");
+
+        assert resource != null;
+
+        Parent load = FXMLLoader.load(resource);
+
+        LoadMedicine.getChildren().clear();
+        LoadMedicine.getChildren().add(load);
     }
 
+    @FXML
+    void btnSalesitemsOnAction(ActionEvent event) throws IOException {
+        URL resource = this.getClass().getResource("/view/Sales_ItemsForm.fxml");
 
-}
+        assert resource != null;
+
+        Parent load = FXMLLoader.load(resource);
+
+        LoadMedicine.getChildren().clear();
+        LoadMedicine.getChildren().add(load);
+    }
+
+    @FXML
+    void btnSuppliersOnAction(ActionEvent event) throws IOException {
+        URL resource = this.getClass().getResource("/view/SupplierForm.fxml");
+
+        assert resource != null;
+
+        Parent load = FXMLLoader.load(resource);
+
+        LoadMedicine.getChildren().clear();
+        LoadMedicine.getChildren().add(load);
+    }
+
+    public void btnBillingOnAction(ActionEvent actionEvent) throws IOException {
+        URL resource = this.getClass().getResource("/view/Billing.fxml");
+
+        assert resource != null;
+
+        Parent load = FXMLLoader.load(resource);
+
+        LoadMedicine.getChildren().clear();
+        LoadMedicine.getChildren().add(load);
+    }
+    }

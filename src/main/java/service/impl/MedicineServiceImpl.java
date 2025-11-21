@@ -38,8 +38,8 @@ public class MedicineServiceImpl implements MedicineService {
     }
 
     @Override
-    public boolean deleteMedicine(String name) {
-        return false;
+    public boolean deleteMedicine(String name) throws SQLException {
+      return  medicineRepository.deleteMedicine(name);
     }
 
 

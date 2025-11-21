@@ -1,18 +1,22 @@
 package service.impl;
 
 import model.dto.Sales;
-import repository.SalesRepository;
+import repository.impl.SaleRepositoryImpl;
 import service.SaleService;
 
 import java.util.List;
 
 public class SalesServiceImpl implements SaleService {
 
-    private final SalesRepository salesRepositorya=new SalesRepository();
+  private  final SaleRepositoryImpl saleRepository =new SaleRepositoryImpl();
 
     @Override
     public List<Sales> getAllSales() {
-        return salesRepositorya.getAllSales();
+        return saleRepository.getAllSales();
+    }
+    @Override
+    public int addSales(Sales sales){
+        return saleRepository.addSales(sales);
     }
 }
 

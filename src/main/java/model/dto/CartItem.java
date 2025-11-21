@@ -8,6 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 public class CartItem {
+    private int medicineId;
     private String customerName;
     private String medicineName;
     private double unitPrice;

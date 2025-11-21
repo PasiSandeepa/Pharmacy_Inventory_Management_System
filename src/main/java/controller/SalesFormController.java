@@ -11,8 +11,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import model.dto.Sales;
 import service.SaleService;
 import service.impl.SalesServiceImpl;
+import java.time.format.DateTimeFormatter;
+import javafx.scene.control.TableCell;
+
+
 
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 public class SalesFormController implements Initializable {
@@ -20,7 +25,7 @@ public class SalesFormController implements Initializable {
       SaleService saleService = new SalesServiceImpl();
       ObservableList<Sales> salesObservableList = FXCollections.observableArrayList();
     @FXML
-    private TableColumn<?, ?> colCreatedAt;
+    private TableColumn<Sales, LocalDateTime> colCreatedAt;
 
     @FXML
     private TableColumn<?, ?> colcashier;
@@ -32,7 +37,7 @@ public class SalesFormController implements Initializable {
     private TableColumn<?, ?> colinvoiceno;
 
     @FXML
-    private TableColumn<?, ?> colsaledate;
+    private TableColumn<Sales, LocalDateTime> colsaledate;
 
     @FXML
     private TableColumn<?, ?> coltotalamount;
@@ -46,6 +51,7 @@ public class SalesFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // TableColumn Types
         colid.setCellValueFactory(new PropertyValueFactory<>("id"));
         colinvoiceno.setCellValueFactory(new PropertyValueFactory<>("invoice_no"));
         colsaledate.setCellValueFactory(new PropertyValueFactory<>("sale_date"));
@@ -53,16 +59,47 @@ public class SalesFormController implements Initializable {
         coltotalamount.setCellValueFactory(new PropertyValueFactory<>("total_amount"));
         colCreatedAt.setCellValueFactory(new PropertyValueFactory<>("created_at"));
         loadAllSales();
-        txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
-         filteredSalesList(newValue);
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        colsaledate.setCellFactory(col -> new TableCell<Sales, LocalDateTime>() {
+            @Override
+            protected void updateItem(LocalDateTime item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty || item == null ? null : dtf.format(item));
+            }
         });
 
+
+        // Created At Column Custom Display
+        colCreatedAt.setCellFactory(column -> new TableCell<Sales, LocalDateTime>() {
+            @Override
+            protected void updateItem(LocalDateTime item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    setText(item.format(dtf));
+                }
+            }
+        });
+
+        // Initialize ObservableList
+        salesObservableList = FXCollections.observableArrayList();
+        loadAllSales();
+
+        // Search listener
+        txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredSalesList(newValue);
+        });
     }
-    private void loadAllSales(){
+
+    // Load all sales
+    private void loadAllSales() {
         salesObservableList.clear();
         salesObservableList.addAll(saleService.getAllSales());
         tblSaless.setItems(salesObservableList);
     }
+
     private void  filteredSalesList(String searchText){
         ObservableList<Sales> filteredList=FXCollections.observableArrayList();
         for (Sales sales:salesObservableList){

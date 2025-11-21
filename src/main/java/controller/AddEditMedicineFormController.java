@@ -59,35 +59,23 @@ public class AddEditMedicineFormController {
 
 
     @FXML
-    void btnDeleteOnAction(ActionEvent event) {
+    void btnDeleteOnAction(ActionEvent event) throws SQLException {
         String name = txtname.getText().trim();
         if (name.isEmpty()) {
             showAlert(Alert.AlertType.WARNING, "Please enter a medicine name to delete!");
             return;
         }
+        boolean isDeleted = medicineService.deleteMedicine(name);
+        if (isDeleted) {
+            showAlert(Alert.AlertType.INFORMATION, "💊 Medicine deleted successfully!");
+            clearTextFields();
+            loadAllMedicines();
+        } else {
+            showAlert(Alert.AlertType.ERROR, "❌ Deletion failed! Medicine not found.");
+        }
 
 
-        Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
-        confirm.setTitle("Delete Confirmation");
-        confirm.setHeaderText(null);
-        confirm.setContentText("Are you sure you want to delete medicine: " + name + "?");
-        confirm.showAndWait().ifPresent(response -> {
-            if (response == javafx.scene.control.ButtonType.OK) {
-                try {
-                    boolean deleted = repository.deleteMedicine(name);
-                    if (deleted) {
-                        showAlert(Alert.AlertType.INFORMATION, "Medicine deleted successfully!");
-                        clearTextFields();
-                        loadAllMedicines();
-                    } else {
-                        showAlert(Alert.AlertType.ERROR, "Medicine not found or delete failed!");
-                    }
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                    showAlert(Alert.AlertType.ERROR, "Error: " + e.getMessage());
-                }
-            }
-        });
+
     }
 
     @FXML
@@ -111,10 +99,6 @@ public class AddEditMedicineFormController {
             medicine.setReorder_level(Integer.parseInt(txtrecorderlevel.getText()));
             medicine.setUpdated_at(LocalDateTime.now());
             medicine.setId(currentMedicineId);
-
-
-            medicine.setId(currentMedicineId);
-
 
             boolean isUpdated = medicineService.Update(medicine);
 

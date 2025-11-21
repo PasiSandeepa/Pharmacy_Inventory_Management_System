@@ -1,17 +1,29 @@
 package controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import model.dto.SaleItem;
+import service.SalesItemService;
+import service.impl.SalesItemServiceImpl;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class SalesItemFormController {
+public class SalesItemFormController implements Initializable {
+
+    private final ObservableList<SaleItem>saleItems = FXCollections.observableArrayList();
+    SalesItemService salesItemService = new SalesItemServiceImpl();
 
     @FXML
     private TableColumn<?, ?> colCreatedAt;
@@ -32,7 +44,7 @@ public class SalesItemFormController {
     private TableColumn<?, ?> colid;
 
     @FXML
-    private TableView<?> tblSalesItems;
+    private TableView<SaleItem> tblSalesItems;
 
     @FXML
     private TextField txtSearch;
@@ -50,4 +62,34 @@ public class SalesItemFormController {
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        colid.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colSalesid.setCellValueFactory(new PropertyValueFactory<>("sale_id"));
+        colMedicineid.setCellValueFactory(new PropertyValueFactory<>("medicine_id"));
+        colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
+        colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unit_price"));
+        colCreatedAt.setCellValueFactory(new PropertyValueFactory<>("created_at"));
+        loadAllSalesItems();
+        txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredSalesItemsList(newValue);
+        });
+
+    }
+    private void loadAllSalesItems(){
+        saleItems.clear();
+        saleItems.addAll(salesItemService.getAllSaleItems());
+        tblSalesItems.setItems(saleItems);
+    }
+    private void filteredSalesItemsList(String searchText){
+        ObservableList<SaleItem> filteredList = FXCollections.observableArrayList();
+        for (SaleItem saleItem:saleItems){
+            if (String.valueOf(saleItem.getId()).contains(searchText) ||
+                    String.valueOf(saleItem.getSale_id()).contains(searchText) ||
+                    String.valueOf(saleItem.getMedicine_id()).contains(searchText)){
+                filteredList.add(saleItem);
+            }
+        }
+        tblSalesItems.setItems(filteredList);
+    }
 }
