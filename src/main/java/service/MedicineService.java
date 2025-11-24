@@ -1,5 +1,7 @@
 package service;
 
+import javafx.collections.ObservableList;
+import model.dto.CartItem;
 import model.dto.Medicine;
 
 import java.sql.SQLException;
@@ -12,6 +14,5 @@ public interface MedicineService {
     List<Medicine> getAllMedicines();
     boolean Update(Medicine medicine);
     boolean deleteMedicine(String name) throws SQLException;
-
-
+    void updateMedicineQty(ObservableList<CartItem> cartItems);
 }

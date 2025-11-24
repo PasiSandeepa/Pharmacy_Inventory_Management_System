@@ -1,8 +1,11 @@
 package service.impl;
 
+import javafx.collections.ObservableList;
+import model.dto.CartItem;
 import model.dto.Medicine;
 
 import repository.MedicineRepository;
+import repository.impl.MedicineRepositoryImpl;
 import service.MedicineService;
 
 import java.sql.SQLException;
@@ -10,7 +13,7 @@ import java.util.List;
 
 public class MedicineServiceImpl implements MedicineService {
 
-    private final MedicineRepository medicineRepository = new MedicineRepository();
+    private final MedicineRepository medicineRepository = new MedicineRepositoryImpl();
 
     @Override
     public boolean addMedicine(Medicine medicine) {
@@ -30,11 +33,7 @@ public class MedicineServiceImpl implements MedicineService {
 
     @Override
     public boolean Update(Medicine medicine) {
-        try {
-            return medicineRepository.updateMedicine(medicine);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        return medicineRepository.updateMedicine(medicine);
     }
 
     @Override
@@ -42,6 +41,16 @@ public class MedicineServiceImpl implements MedicineService {
       return  medicineRepository.deleteMedicine(name);
     }
 
+    @Override
+    public void updateMedicineQty(ObservableList<CartItem> cartItems) {
+        for (CartItem cartItem : cartItems){
+            try {
+                medicineRepository.updateMedicineQty(cartItem.getMedicineId(),cartItem.getQuantity());
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
 
 
 }
