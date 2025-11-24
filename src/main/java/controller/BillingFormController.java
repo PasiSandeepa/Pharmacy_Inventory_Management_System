@@ -1,5 +1,6 @@
 package controller;
 
+import db.DBConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -8,13 +9,20 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.FileChooser;
 import model.dto.CartItem;
 import model.dto.Medicine;
 import model.dto.Sales;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import service.BillingService;
 import service.impl.BillingServiceImpl;
 
+import java.io.File;
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -66,6 +74,10 @@ public class BillingFormController implements Initializable {
     @FXML
     private TextField txtQty;
 
+
+    @FXML
+    private TextField txtId;
+
     @FXML
     private TextField txtUnitPrice;
 
@@ -87,6 +99,7 @@ public class BillingFormController implements Initializable {
         Medicine medicine = billingService.searchByName(name);
         if (medicine != null) {
             txtUnitPrice.setText(String.valueOf(medicine.getUnit_price()));
+          txtMedicineId.setText(String.valueOf(medicine.getId()));
         } else {
             txtUnitPrice.clear();
         }
@@ -101,17 +114,23 @@ public class BillingFormController implements Initializable {
         }
 
         ObservableList<CartItem> cartItems = tblBilling.getItems();
+        System.out.println(tblBilling.getItems());
 
+        String id = txtMedicineId.getText();
         String medName = txtMedicineName.getText();
         String customerName = txtCustomerName.getText();
-        int qty = Integer.parseInt(txtQty.getText());
-        String cashier = cmbCashier.getValue();
-        if (cashier == null || cashier.isEmpty()) {
-            show(Alert.AlertType.ERROR, "Error", "Please select a cashier!");
+        int qty;
+        double unitPrice;
+        try {
+            qty = Integer.parseInt(txtQty.getText());
+            unitPrice = Double.parseDouble(txtUnitPrice.getText());
+        } catch (NumberFormatException e) {
+            show(Alert.AlertType.ERROR, "Error", "Quantity and Unit Price must be numbers!");
             return;
         }
-        double unitPrice = Double.parseDouble(txtUnitPrice.getText());
+
         double total = calculateTotal(qty, unitPrice);
+
 
 
         for (CartItem item : cartItems) {
@@ -143,7 +162,7 @@ public class BillingFormController implements Initializable {
             }
         }
         CartItem newItem = new CartItem(
-                0,
+                txtMedicineId.getText(),
                 txtCustomerName.getText(),
                 medName,
                 unitPrice,
@@ -164,11 +183,32 @@ public class BillingFormController implements Initializable {
         return qty * unitPrice;
     }
 
-
     @FXML
     void btnExportPDFOnAction(ActionEvent event) {
 
+        try {
+
+            JasperDesign design = JRXmlLoader.load("src/main/resources/report/Pharmacy.jrxml");
+            JasperReport jasperReport = JasperCompileManager.compileReport(design);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DBConnection.getInstance().getConnection());
+
+
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Save PDF");
+            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF Files", "*.pdf"));
+
+            File file = fileChooser.showSaveDialog(null);
+
+            if (file != null) {
+                JasperExportManager.exportReportToPdfFile(jasperPrint, file.getAbsolutePath());
+                System.out.println("PDF Saved Successfully!");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+
 
     @FXML
     void btnPlaceOrderOnAction(ActionEvent event) {
@@ -194,12 +234,22 @@ public class BillingFormController implements Initializable {
 
         show(Alert.AlertType.INFORMATION, "Success", "Order placed successfully!");
         clearFields();
-        tblBilling.getItems().clear();
+
     }
 
 
     @FXML
     void btnPrintOnAction(ActionEvent event) {
+        try {
+            JasperDesign design = JRXmlLoader.load("src/main/resources/report/Pharmacy.jrxml");
+            JasperReport jasperReport = JasperCompileManager.compileReport(design);
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DBConnection.getInstance().getConnection());
+            JasperViewer.viewReport(jasperPrint);
+
+        } catch (JRException | SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 

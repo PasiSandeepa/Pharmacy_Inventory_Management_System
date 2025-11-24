@@ -49,22 +49,21 @@ public class SalesItemFormController implements Initializable {
     @FXML
     private TextField txtSearch;
 
-    @FXML
-    void btnAddSalesItemOnAction(ActionEvent event) {
-        Stage stage1 = new Stage();
-        try {
-            stage1.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/AddSalesItemForm.fxml"))));
-        } catch (
-                IOException e) {
-            throw new RuntimeException(e);
-        }
-        stage1.show();
-
-    }
+//    @FXML
+//    void btnAddSalesItemOnAction(ActionEvent event) {
+//        Stage stage1 = new Stage();
+//        try {
+//            stage1.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/AddSalesItemForm.fxml"))));
+//        } catch (
+//                IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//        stage1.show();
+//
+//    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        colid.setCellValueFactory(new PropertyValueFactory<>("id"));
         colSalesid.setCellValueFactory(new PropertyValueFactory<>("sale_id"));
         colMedicineid.setCellValueFactory(new PropertyValueFactory<>("medicine_id"));
         colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
@@ -83,13 +82,15 @@ public class SalesItemFormController implements Initializable {
     }
     private void filteredSalesItemsList(String searchText){
         ObservableList<SaleItem> filteredList = FXCollections.observableArrayList();
-        for (SaleItem saleItem:saleItems){
-            if (String.valueOf(saleItem.getId()).contains(searchText) ||
-                    String.valueOf(saleItem.getSale_id()).contains(searchText) ||
-                    String.valueOf(saleItem.getMedicine_id()).contains(searchText)){
+
+        for (SaleItem saleItem : saleItems) {
+            if (String.valueOf(saleItem.getSale_id()).contains(searchText) ||
+                    String.valueOf(saleItem.getMedicine_id()).contains(searchText)) {
+
                 filteredList.add(saleItem);
             }
         }
+
         tblSalesItems.setItems(filteredList);
     }
-}
+    }

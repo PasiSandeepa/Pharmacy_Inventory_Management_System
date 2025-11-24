@@ -18,4 +18,5 @@ public class Purchases {
     private Double total_amount;
     private LocalDate created_at;
 
+
 }

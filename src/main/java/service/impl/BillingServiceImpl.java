@@ -14,6 +14,7 @@ public class BillingServiceImpl implements BillingService {
     MedicineService medicineService = new MedicineServiceImpl();
     SaleService saleService = new SalesServiceImpl();
 
+
     @Override
     public Medicine searchByName(String name) {
         return medicineService.searchByName(name);
@@ -21,19 +22,19 @@ public class BillingServiceImpl implements BillingService {
 
     @Override
     public void billing(Sales sales, ObservableList<CartItem> cartItems) {
-        try {
-            SaleService saleService1 = new SalesServiceImpl();
-            saleService1.addSales(sales);
+        SaleService saleService1 = new SalesServiceImpl();
 
 
-            for (CartItem item : cartItems) {
+        int saleId = saleService1.addSales(sales);
+        if (saleId <= 0) return;
 
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw e;
-        }
 
+        sales.setId(saleId);
+
+        SalesItemService salesItemService = new SalesItemServiceImpl();
+        salesItemService.addSaleItem(sales, cartItems);
+
+        medicineService.updateMedicineQty(cartItems);
     }
 
 }

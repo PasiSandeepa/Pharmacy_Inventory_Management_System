@@ -2,12 +2,13 @@ package service.impl;
 
 import model.dto.Users;
 import repository.UserRepository;
+import repository.UserRepositoryImpl;
 import service.UserService;
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
 
-    private final UserRepository userRepository = new UserRepository();
+    private final UserRepository userRepository = new UserRepositoryImpl();
 
     @Override
     public boolean registerUser(Users user) {

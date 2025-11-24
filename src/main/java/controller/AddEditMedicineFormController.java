@@ -9,7 +9,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import model.dto.Medicine;
-import repository.MedicineRepository;
+import repository.impl.MedicineRepositoryImpl;
 import service.MedicineService;
 import service.impl.MedicineServiceImpl;
 
@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 public class AddEditMedicineFormController {
 
     private final MedicineService medicineService = new MedicineServiceImpl();
-    private MedicineRepository repository = new MedicineRepository();
+    private MedicineRepositoryImpl repository = new MedicineRepositoryImpl();
     private ObservableList<Medicine> medicineList = FXCollections.observableArrayList();
 
     private Integer currentMedicineId;

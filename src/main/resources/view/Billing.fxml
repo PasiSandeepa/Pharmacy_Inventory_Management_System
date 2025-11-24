@@ -14,7 +14,7 @@
 
 <AnchorPane prefHeight="730.0" prefWidth="1226.0" style="-fx-background-color: #079992;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BillingFormController">
    <children>
-      <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#021e22c9" height="677.0" layoutX="791.0" layoutY="14.0" stroke="#00ff2c" strokeType="INSIDE" width="429.0" />
+      <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#021e22c9" height="700.0" layoutX="790.0" layoutY="7.0" stroke="#00ff2c" strokeType="INSIDE" width="430.0" />
       <Label layoutX="342.0" layoutY="2.0" text="Billing Form " textFill="WHITE">
          <font>
             <Font name="System Bold" size="46.0" />
@@ -30,17 +30,17 @@
             <TableColumn fx:id="colCashier" prefWidth="116.0" style="-fx-background-color: ffffff;" text="Cashier" />
         </columns>
       </TableView>
-      <Line endX="173.0" layoutX="1016.0" layoutY="70.0" startX="-189.0" stroke="#1bff0b" strokeWidth="4.0" />
-      <Label layoutX="841.0" layoutY="28.0" text="Add To Bill" textFill="WHITE">
+      <Line endX="173.0" layoutX="1016.0" layoutY="63.0" startX="-189.0" stroke="#1bff0b" strokeWidth="4.0" />
+      <Label layoutX="841.0" layoutY="19.0" text="Add To Bill" textFill="WHITE">
          <font>
             <Font name="System Bold" size="26.0" />
          </font>
       </Label>
-      <TextField fx:id="txtCustomerName" layoutX="1018.0" layoutY="126.0" prefHeight="30.0" prefWidth="189.0" />
-      <TextField fx:id="txtQty" layoutX="1018.0" layoutY="203.0" prefHeight="30.0" prefWidth="189.0" />
-      <TextField fx:id="txtMedicineName" layoutX="1018.0" layoutY="164.0" onKeyPressed="#MedicineOnKeyReleased" prefHeight="30.0" prefWidth="189.0" />
-      <TextField fx:id="txtUnitPrice" layoutX="1019.0" layoutY="242.0" prefHeight="30.0" prefWidth="189.0" />
-      <Label layoutX="832.0" layoutY="122.0" text="Customer Name" textFill="WHITE">
+      <TextField fx:id="txtCustomerName" layoutX="1018.0" layoutY="75.0" prefHeight="30.0" prefWidth="189.0" />
+      <TextField fx:id="txtQty" layoutX="1018.0" layoutY="207.0" prefHeight="30.0" prefWidth="189.0" />
+      <TextField fx:id="txtMedicineName" layoutX="1019.0" layoutY="164.0" onKeyPressed="#MedicineOnKeyReleased" prefHeight="30.0" prefWidth="189.0" />
+      <TextField fx:id="txtUnitPrice" layoutX="1019.0" layoutY="250.0" prefHeight="30.0" prefWidth="189.0" />
+      <Label layoutX="832.0" layoutY="76.0" text="Customer Name" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
@@ -50,54 +50,54 @@
             <Font name="System Italic" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="834.0" layoutY="160.0" text="Medicine Name" textFill="WHITE">
+      <Label layoutX="831.0" layoutY="163.0" text="Medicine Name" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="833.0" layoutY="201.0" text="Qty" textFill="WHITE">
+      <Label layoutX="833.0" layoutY="207.0" text="Qty" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="830.0" layoutY="241.0" text="Unit Price" textFill="WHITE">
+      <Label layoutX="830.0" layoutY="254.0" text="Unit Price" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Label>
-      <ComboBox fx:id="cmbCashier" layoutX="1019.0" layoutY="280.0" prefHeight="30.0" prefWidth="189.0" />
-      <Label layoutX="832.0" layoutY="281.0" text="Cashier" textFill="WHITE">
+      <ComboBox fx:id="cmbCashier" layoutX="1019.0" layoutY="293.0" prefHeight="30.0" prefWidth="189.0" />
+      <Label layoutX="832.0" layoutY="299.0" text="Cashier" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Button layoutX="1085.0" layoutY="343.0" mnemonicParsing="false" onAction="#btnAddToCart" prefHeight="38.0" prefWidth="117.0" style="-fx-background-color: #1365d0;" text="Add to Cart" textFill="WHITE">
+      <Button layoutX="1085.0" layoutY="361.0" mnemonicParsing="false" onAction="#btnAddToCart" prefHeight="38.0" prefWidth="117.0" style="-fx-background-color: #1365d0;" text="Add to Cart" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <TextArea layoutX="831.0" layoutY="446.0" prefHeight="38.0" prefWidth="362.0" style="-fx-background-color: a3b18a;">
+      <TextArea layoutX="831.0" layoutY="462.0" prefHeight="38.0" prefWidth="362.0" style="-fx-background-color: a3b18a;">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></TextArea>
-      <TextArea layoutX="832.0" layoutY="395.0" prefHeight="38.0" prefWidth="362.0" style="-fx-background-color: a318a;" />
-      <Label layoutX="843.0" layoutY="450.0" text="Discount">
+      <TextArea layoutX="832.0" layoutY="411.0" prefHeight="38.0" prefWidth="362.0" style="-fx-background-color: a318a;" />
+      <Label layoutX="843.0" layoutY="466.0" text="Discount">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblDiscount" layoutX="1109.0" layoutY="454.0" text="0:0">
+      <Label fx:id="lblDiscount" layoutX="1109.0" layoutY="470.0" text="0:0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextArea layoutX="870.0" layoutY="498.0" prefHeight="38.0" prefWidth="296.0" style="-fx-background-color: a318a;" />
-      <Label layoutX="886.0" layoutY="504.0" text="Final Total">
+      <TextArea layoutX="870.0" layoutY="514.0" prefHeight="38.0" prefWidth="296.0" style="-fx-background-color: a318a;" />
+      <Label layoutX="886.0" layoutY="520.0" text="Final Total">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblFinalTotal" layoutX="1031.0" layoutY="500.0" text="0:0" textFill="RED">
+      <Label fx:id="lblFinalTotal" layoutX="1031.0" layoutY="516.0" text="0:0" textFill="RED">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
@@ -112,25 +112,25 @@
             <Font name="System Bold" size="19.0" />
          </font>
       </Button>
-      <Button layoutX="1053.0" layoutY="571.0" mnemonicParsing="false" onAction="#btnPlaceOrderOnAction" prefHeight="46.0" prefWidth="154.0" style="-fx-background-color: #cd0a0a;" text="Place Order" textFill="WHITE">
+      <Button layoutX="1053.0" layoutY="577.0" mnemonicParsing="false" onAction="#btnPlaceOrderOnAction" prefHeight="46.0" prefWidth="154.0" style="-fx-background-color: #cd0a0a;" text="Place Order" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Line endX="173.0" layoutX="1023.0" layoutY="326.0" startX="-189.0" stroke="#1bff0b" strokeWidth="4.0" />
-      <Line endX="173.0" layoutX="1020.0" layoutY="556.0" startX="-189.0" stroke="#1bff0b" strokeWidth="4.0" />
-      <Label layoutX="842.0" layoutY="399.0" text="SubTotal">
+      <Line endX="173.0" layoutX="1021.0" layoutY="350.0" startX="-189.0" stroke="#1bff0b" strokeWidth="4.0" />
+      <Line endX="173.0" layoutX="1020.0" layoutY="562.0" startX="-189.0" stroke="#1bff0b" strokeWidth="4.0" />
+      <Label layoutX="842.0" layoutY="415.0" text="SubTotal">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblSubTotal" layoutX="1108.0" layoutY="400.0" text="0:0">
+      <Label fx:id="lblSubTotal" layoutX="1108.0" layoutY="416.0" text="0:0">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <TextField fx:id="txtSaleid" layoutX="1017.0" layoutY="87.0" prefHeight="30.0" prefWidth="189.0" />
-      <Label layoutX="833.0" layoutY="88.0" text="Sale id" textFill="WHITE">
+      <TextField fx:id="txtMedicineId" disable="true" layoutX="1018.0" layoutY="119.0" prefHeight="30.0" prefWidth="189.0" />
+      <Label layoutX="832.0" layoutY="119.0" text="Medicine Id" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>

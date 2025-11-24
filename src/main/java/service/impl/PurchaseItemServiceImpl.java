@@ -2,13 +2,14 @@ package service.impl;
 
 import model.dto.Purchase_items;
 import repository.PurchaseItemRepository;
+import repository.impl.PurchaseItemRepositoryImpl;
 import service.PurchaseItemService;
 
 import java.util.List;
 
 public class PurchaseItemServiceImpl implements PurchaseItemService {
 
-    private final PurchaseItemRepository purchaseItemRepository= new PurchaseItemRepository();
+    private final PurchaseItemRepository purchaseItemRepository= new PurchaseItemRepositoryImpl();
 
     @Override
     public boolean addPurchaseItem(Purchase_items purchaseItems) {

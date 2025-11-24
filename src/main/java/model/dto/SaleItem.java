@@ -2,7 +2,6 @@ package model.dto;
 
 import lombok.*;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @AllArgsConstructor
@@ -11,7 +10,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @ToString
 public class SaleItem {
-    private Integer id;
     private Integer sale_id;
     private Integer medicine_id;
     private Integer qty;

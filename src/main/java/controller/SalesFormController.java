@@ -70,7 +70,7 @@ public class SalesFormController implements Initializable {
         });
 
 
-        // Created At Column Custom Display
+
         colCreatedAt.setCellFactory(column -> new TableCell<Sales, LocalDateTime>() {
             @Override
             protected void updateItem(LocalDateTime item, boolean empty) {
@@ -83,17 +83,17 @@ public class SalesFormController implements Initializable {
             }
         });
 
-        // Initialize ObservableList
+
         salesObservableList = FXCollections.observableArrayList();
         loadAllSales();
 
-        // Search listener
+
         txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredSalesList(newValue);
         });
     }
 
-    // Load all sales
+
     private void loadAllSales() {
         salesObservableList.clear();
         salesObservableList.addAll(saleService.getAllSales());

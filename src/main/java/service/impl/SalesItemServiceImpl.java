@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import model.dto.CartItem;
 import model.dto.SaleItem;
 import model.dto.Sales;
+import repository.SalesItemRepository;
 import repository.impl.SalesItemRepositoryImpl;
 import service.SaleService;
 import service.SalesItemService;
@@ -15,37 +16,33 @@ import java.sql.ResultSet;
 import java.util.List;
 
 public class SalesItemServiceImpl implements SalesItemService {
-    private final SalesItemRepositoryImpl salesItemRepository = new SalesItemRepositoryImpl();
+    private final SalesItemRepository salesItemRepository = new SalesItemRepositoryImpl();
 
     @Override
     public List<SaleItem> getAllSaleItems() {
         return salesItemRepository.getAllSaleItems();
     }
     @Override
-    public void addSaleItem(Sales newSaleItem, ObservableList<CartItem> cartItems) {
+    public void addSaleItem(Sales sales, ObservableList<CartItem> cartItems) {
         try {
-            SaleService saleService = new SalesServiceImpl();
+            SalesItemRepository salesItemRepository = new SalesItemRepositoryImpl();
 
-
-            int saleId = saleService.addSales(newSaleItem);
-            if (saleId <= 0) return;
-
-
-            for (CartItem cartItem : cartItems) {
-                salesItemRepository.addSaleItem(
-                        new SaleItem(
-                                0,
-                                saleId,
-                                cartItem.getMedicineId(),
-                                cartItem.getQuantity(),
-                                cartItem.getUnitPrice(),
-                                newSaleItem.getCreated_at()
-                        )
+            // Insert each item into sale_items table using the correct saleId
+            for (CartItem item : cartItems) {
+                int medicineId = Integer.parseInt(item.getMedicineId());
+                SaleItem saleItem = new SaleItem(
+                        sales.getId(),       // <-- Use the existing generated saleId
+                        medicineId,
+                        item.getQuantity(),
+                        item.getUnitPrice(),
+                        sales.getCreated_at()
                 );
+                salesItemRepository.addSaleItem(saleItem);
             }
 
-        } catch (RuntimeException e) {
-            throw new RuntimeException(e);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("Error saving sales items: " + e.getMessage());
         }
     }
 
@@ -71,7 +68,6 @@ public class SalesItemServiceImpl implements SalesItemService {
         if (lastInvoice == null) {
             return "INV0001";
         }
-
         int number = Integer.parseInt(lastInvoice.replace("INV", "")) + 1;
 
         return String.format("INV%04d", number);

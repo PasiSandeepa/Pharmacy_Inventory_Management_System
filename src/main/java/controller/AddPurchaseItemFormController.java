@@ -6,7 +6,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import model.dto.Purchase_items;
-import repository.PurchaseItemRepository;
+import repository.impl.PurchaseItemRepositoryImpl;
 import service.PurchaseItemService;
 import service.impl.PurchaseItemServiceImpl;
 
@@ -16,7 +16,7 @@ import java.time.LocalDate;
 public class AddPurchaseItemFormController {
 
     private final PurchaseItemService purchaseItemService = new PurchaseItemServiceImpl();
-    private final PurchaseItemRepository purchaseItemRepository = new PurchaseItemRepository();
+    private final PurchaseItemRepositoryImpl purchaseItemRepository = new PurchaseItemRepositoryImpl();
     @FXML
     private DatePicker dpcreatedat;
 

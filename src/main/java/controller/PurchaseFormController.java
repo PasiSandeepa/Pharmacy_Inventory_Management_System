@@ -14,7 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.dto.Purchases;
 import service.PurchaseService;
-import service.impl.PurchaseServicempl;
+import service.impl.PurchaseServiceImpl;
 
 import java.io.IOException;
 import java.net.URL;
@@ -23,7 +23,7 @@ import java.util.ResourceBundle;
 public class PurchaseFormController implements Initializable {
 
     private final ObservableList<Purchases> purchaseList = FXCollections.observableArrayList();
-    private final PurchaseService purchaseService = new PurchaseServicempl();
+    private final PurchaseService purchaseService = new PurchaseServiceImpl();
 
     @FXML
     private TableColumn<?, ?> colCreatedat;

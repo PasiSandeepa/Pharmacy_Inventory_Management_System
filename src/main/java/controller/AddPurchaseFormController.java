@@ -8,16 +8,16 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import model.dto.Purchases;
-import repository.PurchaseRepository;
+import repository.impl.PurchaseRepositoryImpl;
 import service.PurchaseService;
-import service.impl.PurchaseServicempl;
+import service.impl.PurchaseServiceImpl;
 
 import java.sql.Date;
 
 public class AddPurchaseFormController {
 
-  private final   PurchaseService purchaseService=new PurchaseServicempl();
-   private final PurchaseRepository purchaseRepository=  new PurchaseRepository();
+  private final   PurchaseService purchaseService=new PurchaseServiceImpl();
+   private final PurchaseRepositoryImpl purchaseRepository=  new PurchaseRepositoryImpl();
 private ObservableList<Purchases> purchaseList= FXCollections.observableArrayList();
 
     @FXML

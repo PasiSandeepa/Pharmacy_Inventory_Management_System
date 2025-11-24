@@ -1,0 +1,186 @@
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
+<jasperReport name="Pharacy" language="java" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (2)"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50.0" bold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18.0" bold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14.0" bold="true"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle mode="Opaque" backcolor="#EEEFF0">
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+		</conditionalStyle>
+	</style>
+	<style name="Table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+			<topPen lineWidth="1.0" lineColor="#000000"/>
+			<leftPen lineWidth="1.0" lineColor="#000000"/>
+			<bottomPen lineWidth="1.0" lineColor="#000000"/>
+			<rightPen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#CACED0">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle backcolor="#D8D8D8">
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+		</conditionalStyle>
+	</style>
+	<dataset name="tableDataset" uuid="f13e6d36-5148-4ecc-bbe3-3035def80980">
+		<query language="sql"><![CDATA[]]></query>
+	</dataset>
+	<query language="SQL"><![CDATA[select * from sales]]></query>
+	<field name="invoice_no" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="invoice_no"/>
+		<property name="com.jaspersoft.studio.field.label" value="invoice_no"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sales"/>
+	</field>
+	<field name="sale_date" class="java.time.LocalDateTime">
+		<property name="com.jaspersoft.studio.field.name" value="sale_date"/>
+		<property name="com.jaspersoft.studio.field.label" value="sale_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sales"/>
+	</field>
+	<field name="cashier" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cashier"/>
+		<property name="com.jaspersoft.studio.field.label" value="cashier"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sales"/>
+	</field>
+	<field name="total_amount" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="total_amount"/>
+		<property name="com.jaspersoft.studio.field.label" value="total_amount"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sales"/>
+	</field>
+	<field name="created_at" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="created_at"/>
+		<property name="com.jaspersoft.studio.field.label" value="created_at"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sales"/>
+	</field>
+	<variable name="total_amount_SUM" calculation="Sum" class="java.math.BigDecimal">
+		<expression><![CDATA[$F{total_amount}]]></expression>
+	</variable>
+	<title height="191" splitType="Stretch">
+		<element kind="line" uuid="806ce5df-1219-4876-ae0c-ca7405b1f246" x="0" y="80" width="556" height="5">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="staticText" uuid="0f86baff-6386-4f3f-b3fe-2388707babe8" x="415" y="38" width="50" height="20" fontSize="13.0" hTextAlign="Right">
+			<text><![CDATA[Admin]]></text>
+			<box rightPadding="4"/>
+		</element>
+		<element kind="image" uuid="94883631-a913-43e2-b182-ab8d77d0181e" x="0" y="0" width="74" height="70" hImageAlign="Center">
+			<expression><![CDATA["C:/Users/HP/Pictures/Pharmacy/a-minimalist-logo-design-for-a-pharmacy-showcasing-a-symbol-that-represents-health-and-wellness-a-minimalist-logo-that-captures-the-essence-of-e-commerce-free-vector.jpg"]]></expression>
+		</element>
+		<element kind="staticText" uuid="e622555d-198b-4ccd-a4a1-c59c53304058" x="77" y="0" width="342" height="48" forecolor="#06CC1A" fontSize="33.0" bold="true" hTextAlign="Justified" vTextAlign="Middle">
+			<text><![CDATA[AetherMed Pharmacy]]></text>
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="staticText" uuid="b8cc42fd-b569-497d-834d-7e854040ad18" x="74" y="44" width="266" height="32" forecolor="#096B32" fontSize="16.0">
+			<text><![CDATA[# 334 Galle Road ,Panadura]]></text>
+		</element>
+		<element kind="staticText" uuid="f0193884-e833-44dc-a1db-382a591ab7fa" positionType="Float" mode="Opaque" x="-1" y="126" width="556" height="40" forecolor="#FFFFFF" backcolor="#1CA617" fontName="Serif" fontSize="24.0" italic="false" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Sales Preview]]></text>
+			<property name="com.jaspersoft.studio.unit.y" value="px"/>
+		</element>
+		<element kind="staticText" uuid="d7d3e92f-e908-4178-9921-2c9bff0a6e6f" x="420" y="58" width="154" height="22" fontSize="12.0">
+			<text><![CDATA[ Mr Pasindu Sandeepa]]></text>
+		</element>
+		<element kind="textField" uuid="5410cf2a-a8f8-495f-8b79-ce86fe2a3524" x="0" y="85" width="110" height="18" fontSize="12.0" pattern="MMMMM dd, yyyy">
+			<expression><![CDATA[new java.util.Date()]]></expression>
+		</element>
+		<element kind="textField" uuid="82b4a982-500d-4542-b814-f347f4e201a7" x="0" y="104" width="100" height="30" fontSize="12.0" pattern="HH:mm">
+			<expression><![CDATA[new java.util.Date()]]></expression>
+		</element>
+	</title>
+	<columnHeader height="24">
+		<element kind="staticText" uuid="a97e633f-8fbb-453b-9838-b6d14546cf22" positionType="Float" x="0" y="-9" width="100" height="20" forecolor="#030202" backcolor="#A6A1A1" fontName="Arial" fontSize="14.0" bold="true" hTextAlign="Center" vTextAlign="Top" style="Table">
+			<text><![CDATA[invoice_no]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5486b83b-03c9-4aa3-96f8-5bbfb8ae743a"/>
+		</element>
+		<element kind="staticText" uuid="97c902e5-1dc8-4cd8-9729-d4482cd7def5" positionType="Float" x="100" y="-9" width="140" height="20" forecolor="#000000" backcolor="#6F8071" fontName="Arial" fontSize="14.0" bold="true" hTextAlign="Center" style="Table">
+			<text><![CDATA[sale_date]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="907047f6-538a-4d76-9662-560f20b1cf65"/>
+		</element>
+		<element kind="staticText" uuid="d804d00a-e95a-459b-9de3-d8742d75a5d4" positionType="Float" x="240" y="-9" width="110" height="20" forecolor="#000000" backcolor="#A6A1A1" fontName="Arial" fontSize="14.0" bold="true" hTextAlign="Center" style="Table">
+			<text><![CDATA[cashier]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="56cb49bc-d960-4fd0-a74d-58307ba8a792"/>
+		</element>
+		<element kind="staticText" uuid="eb7b9ac5-cd65-47d2-a8bf-4e421d57cdab" positionType="Float" x="350" y="-9" width="100" height="20" forecolor="#000000" backcolor="#A6A1A1" fontName="Arial" fontSize="14.0" bold="true" hTextAlign="Center" style="Table">
+			<text><![CDATA[total_amount]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6ea5aad7-6105-4caf-a7e2-9ff2114824b9"/>
+		</element>
+		<element kind="staticText" uuid="836e960e-e959-4f2a-810d-a3fc493f295d" positionType="Float" x="450" y="-9" width="105" height="20" forecolor="#000000" backcolor="#A6A1A1" fontName="Arial" fontSize="14.0" bold="true" hTextAlign="Center" style="Table">
+			<text><![CDATA[created_at]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3ff7ef91-9551-4053-9bbd-79c3df374d6d"/>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<element kind="textField" uuid="ccc0c1fc-e70d-4b62-9977-d26dc840c7ae" positionType="Float" x="-1" y="-8" width="100" height="18" fontName="Arial" fontSize="12.0" textAdjust="StretchHeight" blankWhenNull="true" bold="false" hTextAlign="Center" style="Table_TD">
+				<expression><![CDATA[$F{invoice_no}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5486b83b-03c9-4aa3-96f8-5bbfb8ae743a"/>
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			</element>
+			<element kind="textField" uuid="b852ce18-d655-474f-b673-94d1141cb6c5" positionType="Float" x="100" y="-8" width="140" height="18" fontName="Arial" fontSize="12.0" textAdjust="StretchHeight" blankWhenNull="true" bold="false" hTextAlign="Center" vTextAlign="Top" style="Table_TD">
+				<expression><![CDATA[$F{sale_date}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="907047f6-538a-4d76-9662-560f20b1cf65"/>
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			</element>
+			<element kind="textField" uuid="c22c8b31-abd5-4d05-8292-563fa98524cd" positionType="Float" x="240" y="-8" width="110" height="18" fontName="Arial" fontSize="12.0" textAdjust="StretchHeight" blankWhenNull="true" bold="false" hTextAlign="Center" style="Table_TD">
+				<expression><![CDATA[$F{cashier}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="56cb49bc-d960-4fd0-a74d-58307ba8a792"/>
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			</element>
+			<element kind="textField" uuid="e7ae9263-73be-437c-9069-2538ede71df2" positionType="Float" x="350" y="-8" width="100" height="18" fontName="Arial" fontSize="12.0" textAdjust="StretchHeight" blankWhenNull="true" bold="false" hTextAlign="Center" style="Table_TD">
+				<expression><![CDATA[$F{total_amount}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6ea5aad7-6105-4caf-a7e2-9ff2114824b9"/>
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			</element>
+			<element kind="textField" uuid="ee036e1d-dff2-421c-8ffa-a49d0ab18cf1" positionType="Float" x="450" y="-8" width="104" height="18" fontName="Arial" fontSize="12.0" textAdjust="StretchHeight" blankWhenNull="true" bold="false" hTextAlign="Center" style="Table_TD">
+				<expression><![CDATA[$F{created_at}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3ff7ef91-9551-4053-9bbd-79c3df374d6d"/>
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			</element>
+		</band>
+	</detail>
+	<lastPageFooter height="190">
+		<element kind="staticText" uuid="1a0d7088-5af7-4865-8be1-41ec5f51fb36" positionType="Float" x="1" y="24" width="240" height="90" italic="true" hTextAlign="Left" vTextAlign="Top">
+			<text><![CDATA[Your notes here]]></text>
+			<box>
+				<topPen lineWidth="1.1" lineStyle="Dashed"/>
+				<leftPen lineWidth="1.1" lineStyle="Dashed"/>
+				<bottomPen lineWidth="1.1" lineStyle="Dashed"/>
+				<rightPen lineWidth="1.1" lineStyle="Dashed"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="36aa233d-4305-48e6-974a-1bbf89bb3c8f" positionType="Float" mode="Opaque" x="0" y="138" width="556" height="30" forecolor="#030101" backcolor="#E6E8E9" fontName="Serif" fontSize="21.0" italic="true" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Thank You !.]]></text>
+		</element>
+		<property name="com.jaspersoft.studio.unit.height" value="px"/>
+	</lastPageFooter>
+</jasperReport>

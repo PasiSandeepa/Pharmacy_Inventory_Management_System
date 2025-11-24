@@ -16,14 +16,13 @@ public class SalesItemRepositoryImpl implements SalesItemRepository {
     @Override
     public List<SaleItem> getAllSaleItems() {
         ArrayList<SaleItem> saleItems = new ArrayList<>();
-        String SQL = "SELECT * FROM  sale_items";
+        String SQL = "SELECT * FROM   sale_items";
         try {
             Connection connection = DBConnection.getInstance().getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 SaleItem saleItem = new SaleItem(
-                        resultSet.getInt("id"),
                         resultSet.getInt("sale_id"),
                         resultSet.getInt("medicine_id"),
                         resultSet.getInt("qty"),
@@ -42,7 +41,7 @@ public class SalesItemRepositoryImpl implements SalesItemRepository {
     }
     @Override
     public void addSaleItem(SaleItem newSaleItem) {
-        String SQL = "INSERT INTO sale_items (sale_id, medicine_id, qty, unit_price, created_at) VALUES (?, ?, ?, ?, ?)";
+        String SQL = "INSERT INTO  sale_items(sale_id, medicine_id, qty, unit_price, created_at) VALUES (?, ?, ?, ?, ?)";
 
         try {
             Connection connection = DBConnection.getInstance().getConnection();
@@ -52,6 +51,7 @@ public class SalesItemRepositoryImpl implements SalesItemRepository {
             preparedStatement.setObject(3, newSaleItem.getQty());
             preparedStatement.setObject(4, newSaleItem.getUnit_price());
             preparedStatement.setObject(5, newSaleItem.getCreated_at());
+
 
             preparedStatement.executeUpdate();
 

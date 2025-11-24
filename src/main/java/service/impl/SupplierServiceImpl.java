@@ -2,12 +2,13 @@ package service.impl;
 
 import model.dto.Suppliers;
 import repository.SupplierRepository;
+import repository.impl.SupplierRepositoryImpl;
 import service.SupplierService;
 
 import java.util.List;
 
 public class SupplierServiceImpl implements SupplierService {
-   private  final  SupplierRepository supplierRepository =  new SupplierRepository();
+   private  final SupplierRepository supplierRepository =  new SupplierRepositoryImpl();
 
     @Override
     public boolean addSupplier(Suppliers suppliers) {

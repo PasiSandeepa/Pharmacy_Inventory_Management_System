@@ -10,4 +10,5 @@ import java.util.List;
 public interface SalesItemService {
     List<SaleItem>getAllSaleItems();
     void addSaleItem(Sales newSaleItem, ObservableList<CartItem>cartItems);
+
 }
