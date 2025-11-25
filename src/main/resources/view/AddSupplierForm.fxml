@@ -21,6 +21,9 @@
         <Label layoutX="31.0" layoutY="130.0" text="name" textFill="WHITE" />
         <TextField fx:id="txtname" layoutX="130" layoutY="126" onKeyPressed="#OnKeyReleased" prefWidth="250" />
         <Label layoutX="31.0" layoutY="170.0" text="PhoneNo" textFill="WHITE" />
+        <TextField fx:id="txtMedicineId" layoutX="101.0" layoutY="51.0" promptText="Medicine ID" />
+        <TextField fx:id="txtQty" layoutX="255.0" layoutY="51.0" promptText="Quantity" />
+
         <TextField fx:id="txtPhoneno" layoutX="130" layoutY="166" prefWidth="250" />
         <Label layoutX="32.0" layoutY="210.0" text="Email" textFill="WHITE" />
         <TextField fx:id="txtemail" layoutX="130" layoutY="206" prefWidth="250" />

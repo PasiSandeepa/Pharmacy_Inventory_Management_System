@@ -7,12 +7,19 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import model.dto.Suppliers;
+import repository.MedicineRepository;
+import repository.impl.MedicineRepositoryImpl;
+import service.MedicineService;
 import service.SupplierService;
+import service.impl.MedicineServiceImpl;
 import service.impl.SupplierServiceImpl;
 
 public class AddSupplierFormController {
 
     private final SupplierService supplierService = new SupplierServiceImpl();
+    private  final MedicineRepository medicineRepository= new MedicineRepositoryImpl();
+    private final MedicineService medicineService = new MedicineServiceImpl();
+
 
     @FXML
     private DatePicker dpcreatedat;
@@ -31,6 +38,12 @@ public class AddSupplierFormController {
 
     @FXML
     private TextField txtname;
+    @FXML
+    private TextField txtMedicineId;
+
+    @FXML
+    private TextField txtQty;
+
 
     @FXML
     void btnCancelOnAction(ActionEvent event) {
@@ -54,7 +67,7 @@ public class AddSupplierFormController {
 
     @FXML
     void btnEditOnAction(ActionEvent event) {
-        if(txtname.getText().isEmpty()) {
+        if (txtname.getText().isEmpty()) {
             showAlert(Alert.AlertType.WARNING, "Please enter supplier name to edit");
             return;
         }
@@ -73,12 +86,21 @@ public class AddSupplierFormController {
         }
 
 
-
-
     }
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
+
+        String medicineId = txtMedicineId.getText();
+        int qty = Integer.parseInt(txtQty.getText());
+
+        boolean ok = medicineService.UpdateSupplierQyt(medicineId, qty);
+
+        if (ok) {
+            showAlert(Alert.AlertType.INFORMATION, "Stock increased successfully!");
+        } else {
+            showAlert(Alert.AlertType.ERROR, "Failed to update stock!");
+        }
         if (txtname.getText().isEmpty() || txtemail.getText().isEmpty() || txtPhoneno.getText().isEmpty()) {
             showAlert(Alert.AlertType.WARNING, "Please fill all required fields");
             return;
@@ -113,6 +135,8 @@ public class AddSupplierFormController {
         txtemail.clear();
         txtaddress.clear();
         dpcreatedat.setValue(null);
+        txtMedicineId.clear();
+        txtQty.clear();
     }
 
     public void OnKeyReleased(KeyEvent keyEvent) {
@@ -130,6 +154,15 @@ public class AddSupplierFormController {
         }
 
     }
+    public boolean UpdateSupplierQyt(String medId, int qty) {
+        try {
+            medicineRepository.UpdateSupplierQyt(medId, qty);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
 }
 
 

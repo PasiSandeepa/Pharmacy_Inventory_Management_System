@@ -52,5 +52,9 @@ public class MedicineServiceImpl implements MedicineService {
         }
     }
 
+    @Override
+    public boolean UpdateSupplierQyt(String medicineId, int qty) {
+        return medicineRepository.UpdateSupplierQyt(medicineId, qty);
+    }
 
 }

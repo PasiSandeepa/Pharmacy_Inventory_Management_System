@@ -170,6 +170,21 @@ public class MedicineRepositoryImpl implements MedicineRepository {
 
     }
 
+    @Override
+    public boolean UpdateSupplierQyt(String medicineId, int Qty) {
+        String sql = "UPDATE medicines SET quantity = quantity + ? WHERE id = ?";
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, Qty);
+            ps.setString(2, medicineId);
+            return ps.executeUpdate() > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 
 }
 

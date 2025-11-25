@@ -18,4 +18,6 @@ public interface MedicineRepository {
     boolean deleteMedicine(String name);
 
     void updateMedicineQty(String medicineId, int quantity) throws SQLException;
+
+    boolean UpdateSupplierQyt(String medicineId,int Qty);
 }
