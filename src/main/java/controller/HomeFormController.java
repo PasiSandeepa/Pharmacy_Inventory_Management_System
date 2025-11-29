@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -53,6 +54,9 @@ public class HomeFormController implements Initializable {
     @FXML
     private Text txtTotalSale;
 
+    @FXML
+    private Label txtLowMedicine;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -61,6 +65,7 @@ public class HomeFormController implements Initializable {
         loadTotalStock();
         loadTotalSalesAmount();
         loadRecentActivity();
+        loadLowMedicineCount();
 
 
     }
@@ -190,4 +195,24 @@ public class HomeFormController implements Initializable {
 
         tblRecentActivity.setItems(list);
     }
+    private void loadLowMedicineCount() {
+        try {
+            Connection con = DBConnection.getInstance().getConnection();
+
+            String sql = "SELECT COUNT(*) AS low_count FROM medicines WHERE quantity < 100";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+
+            if (rs.next()) {
+                int lowCount = rs.getInt("low_count");
+                txtLowMedicine.setText("" + lowCount);
+
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

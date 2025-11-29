@@ -54,7 +54,7 @@
          </columns>
       </TableView>
       <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#16658a" height="126.0" layoutX="38.0" layoutY="17.0" stroke="BLACK" strokeType="INSIDE" width="214.0" />
-      <Text fx:id="txtStock" fill="WHITE" layoutX="73.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="   00.00" textAlignment="CENTER" wrappingWidth="129.0">
+      <Text fx:id="txtStock" fill="WHITE" layoutX="73.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="   00.00" textAlignment="CENTER" wrappingWidth="129.0">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
@@ -62,9 +62,9 @@
       <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#bc883a" height="126.0" layoutX="342.0" layoutY="17.0" stroke="BLACK" strokeType="INSIDE" width="214.0" />
       <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#28a15a" height="126.0" layoutX="656.0" layoutY="17.0" stroke="BLACK" strokeType="INSIDE" width="214.0" />
       <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#5a248d" height="126.0" layoutX="982.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="214.0" />
-      <Label layoutX="380.0" layoutY="47.0" prefHeight="127.0" prefWidth="153.0" text="Medium Below Recorder Level" textFill="#fcfcfc" wrapText="true">
+      <Label fx:id="txtLowMedicine" layoutX="422.0" layoutY="97.0" prefHeight="44.0" prefWidth="91.0" text="Low Medicine" textFill="#fcfcfc" wrapText="true">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="21.0" />
          </font>
       </Label>
       <ImageView fitHeight="51.0" fitWidth="62.0" layoutX="117.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
@@ -88,8 +88,9 @@
          </image>
       </ImageView>
 
+   
 
-      <Text fx:id="txtTotalSale" fill="WHITE" layoutX="1002.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" MonthRs.0.00$ " textAlignment="CENTER" wrappingWidth="184.704345703125">
+      <Text fx:id="txtTotalSale" fill="WHITE" layoutX="1002.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" MonthRs.0.00$ " textAlignment="CENTER" wrappingWidth="184.704345703125">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -99,7 +100,7 @@
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <Label layoutX="1048.0" layoutY="75.0" text="Toyal Sale" textFill="WHITE">
+      <Label layoutX="1048.0" layoutY="72.0" text="Toyal Sale" textFill="WHITE">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>
@@ -107,6 +108,11 @@
       <Label layoutX="703.0" layoutY="86.0" text="Purchase" textFill="WHITE">
          <font>
             <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="346.0" layoutY="73.0" text="Low MedicineCount" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
          </font>
       </Label>
    </children>

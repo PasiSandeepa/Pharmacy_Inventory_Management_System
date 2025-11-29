@@ -15,6 +15,5 @@ public interface MedicineService {
     boolean Update(Medicine medicine);
     boolean deleteMedicine(String name) throws SQLException;
     void updateMedicineQty(ObservableList<CartItem> cartItems);
-
     boolean UpdateSupplierQyt(String medicineId, int qty);
 }
