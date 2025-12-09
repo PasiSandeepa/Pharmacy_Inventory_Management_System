@@ -2,6 +2,8 @@ package repository;
 
 import model.dto.Purchases;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 public interface PurchaseRepository {
@@ -9,7 +11,7 @@ public interface PurchaseRepository {
 
     boolean updatePurchase(Purchases purchases);
 
-    List<Purchases> getAllPurchases();
+   ResultSet getAllPurchases() throws SQLException;
 
     Purchases searchByInvoiceNo(String s);
 

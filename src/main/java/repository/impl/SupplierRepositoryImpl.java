@@ -48,33 +48,17 @@ public class SupplierRepositoryImpl implements SupplierRepository {
     }
 
 
-    public List<Suppliers> getAllSuppliers() {
-        List<Suppliers> supplierList = new ArrayList<>();
+    public ResultSet getAllSuppliers() throws SQLException {
+
 
         String SQL = "SELECT * FROM suppliers";
 
-        try (Connection connection = DBConnection.getInstance().getConnection();
+        Connection connection = DBConnection.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SQL);
-             ResultSet resultSet = preparedStatement.executeQuery()) {
+             ResultSet resultSet = preparedStatement.executeQuery();
 
-            while (resultSet.next()) {
-                Suppliers suppliers = new Suppliers();
 
-                suppliers.setId(String.valueOf(resultSet.getInt("id")));
-                suppliers.setName(resultSet.getString("name"));
-                suppliers.setPhone(resultSet.getString("phone"));
-                suppliers.setEmail(resultSet.getString("email"));
-                suppliers.setAddress(resultSet.getString("address"));
-                suppliers.setCreatedAt(resultSet.getDate("created_at").toLocalDate());
-
-                supplierList.add(suppliers);
-            }
-
-        } catch (SQLException e) {
-            throw new RuntimeException("Error loading suppliers", e);
-        }
-
-        return supplierList;
+        return resultSet;
     }
     public Suppliers findByName(String name) {
         String SQL = "SELECT * FROM suppliers WHERE name = ?";

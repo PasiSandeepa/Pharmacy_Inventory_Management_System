@@ -19,6 +19,7 @@ import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import service.BillingService;
 import service.impl.BillingServiceImpl;
+import service.impl.MedicineServiceImpl;
 
 import java.io.File;
 import java.net.URL;
@@ -30,6 +31,7 @@ import java.util.ResourceBundle;
 public class BillingFormController implements Initializable {
 
     BillingService billingService = new BillingServiceImpl();
+    MedicineServiceImpl medicineService=new MedicineServiceImpl();
 
     @FXML
     private ComboBox<String> cmbCashier;
@@ -88,22 +90,32 @@ public class BillingFormController implements Initializable {
     @FXML
     private Label lblSubTotal;
 
-
     @FXML
     void MedicineOnKeyReleased(KeyEvent event) {
-        String name = txtMedicineName.getText() == null ? "" : txtMedicineName.getText().trim();
-        if (name.isEmpty()) {
 
+        String name = txtMedicineName.getText().trim();
+
+        if (name.isEmpty()) {
+            txtUnitPrice.clear();
+            txtMedicineId.clear();
             return;
         }
-        Medicine medicine = billingService.searchByName(name);
-        if (medicine != null) {
-            txtUnitPrice.setText(String.valueOf(medicine.getUnit_price()));
-          txtMedicineId.setText(String.valueOf(medicine.getId()));
+
+        ObservableList<Medicine> medicines = billingService.searchByName(name);
+
+        if (medicines != null && !medicines.isEmpty()) {
+
+            Medicine med = medicines.get(0);   // ← Single medicine object
+
+            txtUnitPrice.setText(String.valueOf(med.getUnit_price()));
+            txtMedicineId.setText(String.valueOf(med.getId()));
+
         } else {
             txtUnitPrice.clear();
+            txtMedicineId.clear();
         }
     }
+
 
     @FXML
     void btnAddToCart(ActionEvent event) {

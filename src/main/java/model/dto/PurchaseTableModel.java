@@ -9,7 +9,7 @@ import lombok.*;
 @ToString
 public class PurchaseTableModel {
     private Integer id;
-    private String date;    // created_at as String
-    private String type;    // "Purchase"
-    private Double amount;  // total_amount
+    private String date;
+    private String type;
+    private Double amount;
 }

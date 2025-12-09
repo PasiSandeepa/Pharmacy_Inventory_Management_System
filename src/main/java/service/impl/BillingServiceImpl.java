@@ -1,23 +1,53 @@
 package service.impl;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.dto.CartItem;
 import model.dto.Medicine;
 import model.dto.SaleItem;
 import model.dto.Sales;
+import repository.MedicineRepository;
+import repository.impl.MedicineRepositoryImpl;
 import service.BillingService;
 import service.MedicineService;
 import service.SaleService;
 import service.SalesItemService;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class BillingServiceImpl implements BillingService {
-    MedicineService medicineService = new MedicineServiceImpl();
+     MedicineServiceImpl medicineService;
+     MedicineRepository medicineRepository=new MedicineRepositoryImpl();
     SaleService saleService = new SalesServiceImpl();
 
 
     @Override
-    public Medicine searchByName(String name) {
-        return medicineService.searchByName(name);
+    public ObservableList<Medicine> searchByName(String name) {
+ObservableList <Medicine> list = FXCollections.observableArrayList();
+        try {
+            ResultSet resultSet= medicineRepository.searchByName(name);
+            if (resultSet.next()) {
+                Medicine medicine = new Medicine(
+                        resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("brand"),
+                        resultSet.getString("batch_no"),
+                        resultSet.getDate("expiry_date").toLocalDate(),
+                        resultSet.getInt("quantity"),
+                        resultSet.getDouble("unit_price"),
+                        resultSet.getInt("reorder_level"),
+                        resultSet.getTimestamp("created_at").toLocalDateTime(),
+                        resultSet.getTimestamp("updated_at").toLocalDateTime()
+                );
+                                               
+                list.add(medicine);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+   return list;
     }
 
     @Override

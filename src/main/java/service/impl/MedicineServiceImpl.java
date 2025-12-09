@@ -1,5 +1,6 @@
 package service.impl;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.dto.CartItem;
 import model.dto.Medicine;
@@ -8,6 +9,7 @@ import repository.MedicineRepository;
 import repository.impl.MedicineRepositoryImpl;
 import service.MedicineService;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -21,8 +23,33 @@ public class MedicineServiceImpl implements MedicineService {
     }
 
     @Override
-    public Medicine searchByName(String name) {
-        return medicineRepository.searchByName(name);
+    public ObservableList<Medicine> searchByName(String name) {
+
+        ObservableList<Medicine> medicinesList = FXCollections.observableArrayList();
+        ResultSet resultSet = null;
+
+        try {
+            resultSet = medicineRepository.searchByName(name);
+            if (resultSet.next()) {
+              Medicine  medicine = new Medicine(
+                        resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("brand"),
+                        resultSet.getString("batch_no"),
+                        resultSet.getDate("expiry_date").toLocalDate(),
+                        resultSet.getInt("quantity"),
+                        resultSet.getDouble("unit_price"),
+                        resultSet.getInt("reorder_level"),
+                        resultSet.getTimestamp("created_at").toLocalDateTime(),
+                        resultSet.getTimestamp("updated_at").toLocalDateTime()
+                );
+              medicinesList.add(medicine);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+       return medicinesList;
+
     }
 
 

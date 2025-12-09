@@ -27,11 +27,11 @@ public class SalesItemServiceImpl implements SalesItemService {
         try {
             SalesItemRepository salesItemRepository = new SalesItemRepositoryImpl();
 
-            // Insert each item into sale_items table using the correct saleId
+
             for (CartItem item : cartItems) {
                 int medicineId = Integer.parseInt(item.getMedicineId());
                 SaleItem saleItem = new SaleItem(
-                        sales.getId(),       // <-- Use the existing generated saleId
+                        sales.getId(),
                         medicineId,
                         item.getQuantity(),
                         item.getUnitPrice(),

@@ -38,34 +38,17 @@ public class MedicineRepositoryImpl implements MedicineRepository {
         }
     }
 
-    public Medicine searchByName(String name) {
+    public ResultSet searchByName(String name) throws SQLException {
         Medicine medicine = null;
-        try {
-            Connection connection = DBConnection.getInstance().getConnection();
-            String Sql = "SELECT * FROM medicines WHERE name= ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(Sql);
-            preparedStatement.setString(1, name);
-            ResultSet resultSet = preparedStatement.executeQuery();
 
-            if (resultSet.next()) {
-                medicine = new Medicine(
-                        resultSet.getInt("id"),
-                        resultSet.getString("name"),
-                        resultSet.getString("brand"),
-                        resultSet.getString("batch_no"),
-                        resultSet.getDate("expiry_date").toLocalDate(),
-                        resultSet.getInt("quantity"),
-                        resultSet.getDouble("unit_price"),
-                        resultSet.getInt("reorder_level"),
-                        resultSet.getTimestamp("created_at").toLocalDateTime(),
-                        resultSet.getTimestamp("updated_at").toLocalDateTime()
-                );
-            }
-        } catch (
-                SQLException e) {
-            e.printStackTrace();
-        }
-        return medicine;
+        Connection connection = DBConnection.getInstance().getConnection();
+        String Sql = "SELECT * FROM medicines WHERE name= ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(Sql);
+        preparedStatement.setString(1, name);
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+
+        return resultSet;
     }
 
     public List<Medicine> getAllMedicines() {

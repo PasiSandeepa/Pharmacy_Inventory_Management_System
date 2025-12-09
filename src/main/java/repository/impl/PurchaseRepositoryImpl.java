@@ -53,32 +53,14 @@ public class PurchaseRepositoryImpl implements PurchaseRepository {
         }
     }
 
-    public List<Purchases> getAllPurchases() {
-        Purchases purchases = null;
-        ArrayList<Purchases> List = new ArrayList<>();
+    public ResultSet getAllPurchases() throws SQLException {
+
         String SQL = "SELECT * FROM purchases";
-        try {
+
             Connection connection = DBConnection.getInstance().getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
             ResultSet resultSet = preparedStatement.executeQuery();
-
-            while (resultSet.next()) {
-                purchases = new Purchases(
-                        resultSet.getInt("id"),
-                        resultSet.getInt("supplier_id"),
-                        resultSet.getString("invoice_no"),
-                        resultSet.getDate("purchase_date").toLocalDate(),
-                        resultSet.getDouble("total_amount"),
-                        resultSet.getDate("created_at").toLocalDate()
-                );
-                List.add(purchases);
-            }
-
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return List;
+            return resultSet;
     }
 
     public Purchases searchByInvoiceNo(String invoiceNo) {

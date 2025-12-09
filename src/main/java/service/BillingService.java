@@ -6,7 +6,7 @@ import model.dto.Medicine;
 import model.dto.Sales;
 
 public interface BillingService {
-    Medicine searchByName(String name);
+    ObservableList<Medicine> searchByName(String name);
     void billing(Sales sales, ObservableList<CartItem>cartItems);
 
 
