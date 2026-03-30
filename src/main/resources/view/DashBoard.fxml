@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="789.0" prefWidth="1418.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashBoardFormController">
    <children>
-      <Rectangle fill="WHITE" height="101.0" layoutX="-5.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" width="1573.0" />
+      <Rectangle fill="WHITE" height="101.0" layoutX="-5.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" width="1578.0" />
       <ImageView fitHeight="87.0" fitWidth="93.0" layoutX="20.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/3.jpg" />
@@ -41,7 +41,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#094700c2" height="714.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" width="322.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#094700c2" height="718.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" width="322.0" />
       <Button layoutX="40.0" layoutY="151.0" mnemonicParsing="false" onAction="#btnDashBoardOnAction" prefHeight="45.0" prefWidth="232.0" style="-fx-background-color: #F8EFBA;" styleClass="nav-button" stylesheets="@../css/style.css" text="DashBoard" textFill="#1626ff">
          <font>
             <Font name="System Bold" size="25.0" />
@@ -82,14 +82,14 @@
             <Font name="System Bold" size="25.0" />
          </font>
       </Button>
-      <AnchorPane fx:id="LoadMedicine" layoutX="322.0" layoutY="104.0" prefHeight="712.0" prefWidth="1248.0" style="-fx-background-color: #079992;" stylesheets="@../css/style.css">
+      <AnchorPane fx:id="LoadMedicine" layoutX="321.0" layoutY="99.0" prefHeight="718.0" prefWidth="1252.0" style="-fx-background-color: #079992;" stylesheets="@../css/style.css">
          <children>
-            <ImageView fitHeight="620.0" fitWidth="623.0" layoutX="278.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="620.0" fitWidth="623.0" layoutX="278.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/16.png" />
                </image>
             </ImageView>
-            <Label layoutX="42.0" layoutY="653.0" text="2025 AetherMed Pharmacy | All are Reserved." textFill="WHITE">
+            <Label layoutX="42.0" layoutY="653.0" text="2026 AetherMed Pharmacy | All are Reserved." textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="17.0" />
                </font>

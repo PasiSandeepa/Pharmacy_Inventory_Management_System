@@ -1,15 +1,15 @@
-/* ===== General Layout ===== */
+
 .root {
     -fx-background-color: linear-gradient(to bottom , #42a3a6, #4293a6);
 }
 
 .header {
     -fx-background-color: white;
-    -fx-alignment: center-left; /* මෙක title එක උඩට නොයා මැදට යයි */
+    -fx-alignment: center-left;
 }
 
 
-/* ===== Side Navigation ===== */
+
 .sidebar {
     -fx-background-color: #13385f;
     -fx-background-radius: 20;
@@ -18,16 +18,15 @@
 
 
 
-/* Hover effect එක */
 .nav-button:hover {
-    -fx-background-color: #AFC6F4; /* ටිකක් ගැඹුරු blue */
+    -fx-background-color: #AFC6F4;
     -fx-cursor: hand;
 }
 
 
 
 
-/* ===== Dashboard Cards ===== */
+
 .card {
     -fx-background-radius: 15;
     -fx-padding: 10;
@@ -40,7 +39,7 @@
 .card-green { -fx-background-color: #33bb7a; }
 .card-purple { -fx-background-color: #a85df7; }
 
-/* ===== Charts ===== */
+
 .chart-container {
     -fx-background-color: #5ea6b6;
     -fx-background-radius: 20;
@@ -64,7 +63,7 @@
     -fx-border-width: 1;
 
     -profile-pic
-        -fx-clip: circle(25px at right right); /* clip to circle shape */
+        -fx-clip: circle(25px at right right);
         -fx-border-radius: 25;
         -fx-background-radius: 25;
 }
@@ -72,7 +71,7 @@
 .table-view {
     -fx-font-size: 20px;
     -fx-font-weight: bold;
-    -fx-text-fill: blue; /* ✅ text color */
+    -fx-text-fill: blue;
 }
 .Label {
     font-family: "Poppins", sans-serif;

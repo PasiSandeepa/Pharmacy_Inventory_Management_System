@@ -3,7 +3,6 @@ package repository.impl;
 import db.DBConnection;
 import model.dto.Medicine;
 import repository.MedicineRepository;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
